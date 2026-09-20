@@ -22,12 +22,12 @@ Add to your `build.gradle.kts` (or Version Catalog):
 ```kotlin
 // Option 1: Complete Turnkey UI (includes core)
 commonMain.dependencies {
-    implementation("io.github.galib:foliate-kmp-compose:0.1.0")
+    implementation("io.github.galib:foliate-kmp-compose:0.1.0-beta01")
 }
 
 // Option 2: Headless Engine Only (custom UI)
 commonMain.dependencies {
-    implementation("io.github.galib:foliate-kmp-core:0.1.0")
+    implementation("io.github.galib:foliate-kmp-core:0.1.0-beta01")
 }
 ```
 

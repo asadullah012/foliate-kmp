@@ -10,5 +10,5 @@ plugins {
 
 allprojects {
     group = providers.gradleProperty("GROUP").getOrElse("io.github.galib")
-    version = providers.gradleProperty("VERSION_NAME").getOrElse("0.1.0-SNAPSHOT")
+    version = providers.gradleProperty("VERSION_NAME").getOrElse("0.1.0-beta01")
 }
