@@ -75,6 +75,19 @@ public data class EpubReaderLocation(
 )
 
 /**
+ * Preserved reading progress within a book.
+ *
+ * @property fraction Proportional completion progress across the entire publication (0.0 to 1.0).
+ * @property cfi Optional Canonical Fragment Identifier pointing to exact reading location.
+ */
+@Immutable
+@Serializable
+public data class EpubProgress(
+    public val fraction: Float = 0.0f,
+    public val cfi: String? = null
+)
+
+/**
  * Item in an EPUB Table of Contents tree.
  *
  * @property id Unique identifier of the TOC entry.

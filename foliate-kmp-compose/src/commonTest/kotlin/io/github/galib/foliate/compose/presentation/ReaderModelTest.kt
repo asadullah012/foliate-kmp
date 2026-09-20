@@ -115,7 +115,7 @@ class ReaderModelTest {
         assertEquals(0.75f, model.state.value.progressFraction)
         val persisted = storage.getProgress("book-1")
         assertNotNull(persisted)
-        assertEquals(0.75f, persisted.first)
+        assertEquals(0.75f, persisted.fraction)
     }
 
     @Test
@@ -165,6 +165,7 @@ class ReaderModelTest {
         val storage = InMemoryEpubReaderStorage()
         val model = ReaderModel(storage, testClock)
         model.onEvent(ReaderEvent.Init(bookId = "book-1", filePath = "test.epub"))
+        advanceUntilIdle()
         model.onEvent(ReaderEvent.LocationUpdated("cfi/chapter1", 0.1f, "Chapter 1", 0, 5))
         advanceUntilIdle()
 

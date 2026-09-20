@@ -69,10 +69,11 @@ class EpubReaderControllerTest {
     }
 
     @Test
-    fun `controller sends expected javascript to evaluator`() {
+    fun `controller sends expected javascript to evaluator when ready`() {
         val controller = EpubReaderController()
         val executedScripts = mutableListOf<String>()
         controller.jsEvaluator = { executedScripts.add(it) }
+        controller.onReady()
 
         controller.nextPage()
         controller.prevPage()
@@ -83,8 +84,28 @@ class EpubReaderControllerTest {
         assertEquals(5, executedScripts.size)
         assertTrue(executedScripts[0].contains("nextPage()"))
         assertTrue(executedScripts[1].contains("prevPage()"))
-        assertTrue(executedScripts[2].contains("goToCfi('cfi/1')"))
-        assertTrue(executedScripts[3].contains("setTheme('#1E1E1E'"))
+        assertTrue(executedScripts[2].contains("goToCfi(\"cfi/1\")"))
+        assertTrue(executedScripts[3].contains("setTheme(\"#1E1E1E\""))
         assertTrue(executedScripts[4].contains("setFontSize(22)"))
+    }
+
+    @Test
+    fun `commands issued before ready are queued and drained on ready`() {
+        val controller = EpubReaderController()
+        val executedScripts = mutableListOf<String>()
+        controller.jsEvaluator = { executedScripts.add(it) }
+
+        controller.nextPage()
+        controller.goToCfi("cfi/early")
+
+        // Not ready yet, nothing executed
+        assertTrue(executedScripts.isEmpty())
+
+        controller.onReady()
+
+        // After ready, queued commands are executed in order
+        assertEquals(2, executedScripts.size)
+        assertTrue(executedScripts[0].contains("nextPage()"))
+        assertTrue(executedScripts[1].contains("goToCfi(\"cfi/early\")"))
     }
 }

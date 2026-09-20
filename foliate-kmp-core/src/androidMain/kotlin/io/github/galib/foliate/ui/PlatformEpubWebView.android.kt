@@ -34,6 +34,7 @@ import io.github.galib.foliate.model.EpubTocItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.decodeFromJsonElement
@@ -82,7 +83,6 @@ internal actual fun PlatformEpubWebView(
                 domStorageEnabled = true
                 allowFileAccess = true
                 allowContentAccess = true
-                databaseEnabled = true
                 useWideViewPort = true
                 loadWithOverviewMode = true
                 cacheMode = WebSettings.LOAD_DEFAULT
@@ -139,7 +139,7 @@ internal actual fun PlatformEpubWebView(
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                    val cfiArg = if (!initialCfi.isNullOrBlank()) "'${initialCfi.replace("'", "\\'")}'" else "null"
+                    val cfiArg = if (!initialCfi.isNullOrBlank()) Json.encodeToString(initialCfi) else "null"
                     view?.evaluateJavascript(
                         "if (window.readerController && !window._bookOpened) { window.readerController.openBook('$BOOK_URL', $cfiArg); }",
                         null
@@ -250,7 +250,7 @@ internal class AndroidEpubBridge(
                 val type = element["type"]?.jsonPrimitive?.contentOrNull
                 when (type) {
                     "initialized" -> {
-                        val cfiArg = if (!initialCfi.isNullOrBlank()) "'${initialCfi.replace("'", "\\'")}'" else "null"
+                        val cfiArg = if (!initialCfi.isNullOrBlank()) json.encodeToString(initialCfi) else "null"
                         val js = "window.readerController && window.readerController.openBook('$BOOK_URL', $cfiArg)"
                         getWebView()?.evaluateJavascript(js, null)
                     }

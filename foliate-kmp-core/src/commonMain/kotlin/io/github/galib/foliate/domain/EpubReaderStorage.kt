@@ -2,6 +2,7 @@ package io.github.galib.foliate.domain
 
 import io.github.galib.foliate.model.EpubAnnotation
 import io.github.galib.foliate.model.EpubBookmark
+import io.github.galib.foliate.model.EpubProgress
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
@@ -12,8 +13,11 @@ import kotlinx.coroutines.sync.withLock
  * to Room, SQLite, DataStore, or a remote cloud database.
  */
 public interface EpubReaderStorage {
-    public suspend fun saveProgress(bookId: String, fraction: Float, cfi: String)
-    public suspend fun getProgress(bookId: String): Pair<Float, String?>?
+    public suspend fun saveProgress(bookId: String, fraction: Float, cfi: String) {
+        saveProgress(bookId, EpubProgress(fraction = fraction, cfi = cfi))
+    }
+    public suspend fun saveProgress(bookId: String, progress: EpubProgress)
+    public suspend fun getProgress(bookId: String): EpubProgress?
     public suspend fun getBookmarks(bookId: String): List<EpubBookmark>
     public suspend fun saveBookmark(bookId: String, bookmark: EpubBookmark)
     public suspend fun deleteBookmark(bookId: String, cfi: String)
@@ -28,17 +32,21 @@ public interface EpubReaderStorage {
  */
 public class InMemoryEpubReaderStorage : EpubReaderStorage {
     private val mutex = Mutex()
-    private val progressMap = mutableMapOf<String, Pair<Float, String?>>()
+    private val progressMap = mutableMapOf<String, EpubProgress>()
     private val bookmarksMap = mutableMapOf<String, MutableList<EpubBookmark>>()
     private val annotationsMap = mutableMapOf<String, MutableList<EpubAnnotation>>()
 
-    override suspend fun saveProgress(bookId: String, fraction: Float, cfi: String) {
+    override suspend fun saveProgress(bookId: String, progress: EpubProgress) {
         mutex.withLock {
-            progressMap[bookId] = fraction to cfi
+            progressMap[bookId] = progress
         }
     }
 
-    override suspend fun getProgress(bookId: String): Pair<Float, String?>? = mutex.withLock {
+    override suspend fun saveProgress(bookId: String, fraction: Float, cfi: String) {
+        saveProgress(bookId, EpubProgress(fraction = fraction, cfi = cfi))
+    }
+
+    override suspend fun getProgress(bookId: String): EpubProgress? = mutex.withLock {
         progressMap[bookId]
     }
 

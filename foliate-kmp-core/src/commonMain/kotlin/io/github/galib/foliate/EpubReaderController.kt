@@ -16,12 +16,17 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 /**
  * Controller providing programmatic control and state observation for an embedded EPUB reader.
  */
 @Stable
 public class EpubReaderController {
+
+    private val json = Json { encodeDefaults = true }
+    private val pendingCommands = ArrayDeque<String>()
 
     private val _location = MutableStateFlow(EpubReaderLocation())
     public val location: StateFlow<EpubReaderLocation> = _location.asStateFlow()
@@ -60,6 +65,12 @@ public class EpubReaderController {
     public val annotationClickEvents: SharedFlow<String> = _annotationClickEvents.asSharedFlow()
 
     internal var jsEvaluator: ((String) -> Unit)? = null
+        set(value) {
+            field = value
+            if (value != null && _isReady.value) {
+                drainPendingCommands()
+            }
+        }
 
     /**
      * Advances to the next page or section.
@@ -79,16 +90,16 @@ public class EpubReaderController {
      * Navigates to a specific Canonical Fragment Identifier (CFI).
      */
     public fun goToCfi(cfi: String) {
-        val sanitized = cfi.replace("'", "\\'")
-        evaluateJs("window.readerController && window.readerController.goToCfi('$sanitized')")
+        val safeCfi = json.encodeToString(cfi)
+        evaluateJs("window.readerController && window.readerController.goToCfi($safeCfi)")
     }
 
     /**
      * Navigates to a specific Table of Contents HREF target.
      */
     public fun goToHref(href: String) {
-        val sanitized = href.replace("'", "\\'")
-        evaluateJs("window.readerController && window.readerController.goToHref('$sanitized')")
+        val safeHref = json.encodeToString(href)
+        evaluateJs("window.readerController && window.readerController.goToHref($safeHref)")
     }
 
     /**
@@ -103,9 +114,9 @@ public class EpubReaderController {
      * Updates the reader theme.
      */
     public fun setTheme(theme: EpubReaderTheme) {
-        evaluateJs(
-            "window.readerController && window.readerController.setTheme('${theme.backgroundColor}', '${theme.textColor}')"
-        )
+        val safeBg = json.encodeToString(theme.backgroundColor)
+        val safeFg = json.encodeToString(theme.textColor)
+        evaluateJs("window.readerController && window.readerController.setTheme($safeBg, $safeFg)")
     }
 
     /**
@@ -120,8 +131,8 @@ public class EpubReaderController {
      * Updates the font family stack.
      */
     public fun setFontFamily(fontFamily: String) {
-        val sanitized = fontFamily.replace("'", "\\'")
-        evaluateJs("window.readerController && window.readerController.setFontFamily('$sanitized')")
+        val safeFont = json.encodeToString(fontFamily)
+        evaluateJs("window.readerController && window.readerController.setFontFamily($safeFont)")
     }
 
     /**
@@ -132,7 +143,8 @@ public class EpubReaderController {
             EpubReaderFlow.PAGINATED -> "paginated"
             EpubReaderFlow.SCROLLED -> "scrolled"
         }
-        evaluateJs("window.readerController && window.readerController.setLayout('$flowStr')")
+        val safeFlow = json.encodeToString(flowStr)
+        evaluateJs("window.readerController && window.readerController.setLayout($safeFlow)")
     }
 
     /**
@@ -155,8 +167,8 @@ public class EpubReaderController {
      * Updates text alignment ("justify" or "left").
      */
     public fun setTextAlign(textAlign: String) {
-        val sanitized = textAlign.replace("'", "\\'")
-        evaluateJs("window.readerController && window.readerController.setTextAlign('$sanitized')")
+        val safeAlign = json.encodeToString(textAlign)
+        evaluateJs("window.readerController && window.readerController.setTextAlign($safeAlign)")
     }
 
     /**
@@ -168,8 +180,8 @@ public class EpubReaderController {
             return
         }
         _isSearching.value = true
-        val sanitized = query.replace("'", "\\'").replace("\n", " ")
-        evaluateJs("window.readerController && window.readerController.search('$sanitized')")
+        val safeQuery = json.encodeToString(query)
+        evaluateJs("window.readerController && window.readerController.search($safeQuery)")
     }
 
     /**
@@ -210,6 +222,7 @@ public class EpubReaderController {
     internal fun onReady() {
         _isReady.value = true
         _errorMessage.value = null
+        drainPendingCommands()
     }
 
     internal fun onError(message: String) {
@@ -232,18 +245,18 @@ public class EpubReaderController {
      * Adds a persistent visual highlight annotation on the given CFI range.
      */
     public fun addAnnotation(annotation: EpubAnnotation) {
-        val safeCfi = annotation.cfi.replace("'", "\\'")
-        val safeColor = annotation.color.replace("'", "\\'")
-        val safeNote = (annotation.note ?: "").replace("'", "\\'")
-        evaluateJs("window.readerController && window.readerController.addAnnotation('$safeCfi', '$safeColor', '$safeNote')")
+        val safeCfi = json.encodeToString(annotation.cfi)
+        val safeColor = json.encodeToString(annotation.color)
+        val safeNote = json.encodeToString(annotation.note ?: "")
+        evaluateJs("window.readerController && window.readerController.addAnnotation($safeCfi, $safeColor, $safeNote)")
     }
 
     /**
      * Removes an annotation at the specified CFI.
      */
     public fun deleteAnnotation(cfi: String) {
-        val safeCfi = cfi.replace("'", "\\'")
-        evaluateJs("window.readerController && window.readerController.deleteAnnotation('$safeCfi')")
+        val safeCfi = json.encodeToString(cfi)
+        evaluateJs("window.readerController && window.readerController.deleteAnnotation($safeCfi)")
     }
 
     /**
@@ -267,6 +280,19 @@ public class EpubReaderController {
     }
 
     private fun evaluateJs(script: String) {
-        jsEvaluator?.invoke(script)
+        val evaluator = jsEvaluator
+        if (evaluator != null && _isReady.value) {
+            evaluator(script)
+        } else {
+            pendingCommands.addLast(script)
+        }
+    }
+
+    private fun drainPendingCommands() {
+        val evaluator = jsEvaluator ?: return
+        while (pendingCommands.isNotEmpty()) {
+            val cmd = pendingCommands.removeFirst()
+            evaluator(cmd)
+        }
     }
 }

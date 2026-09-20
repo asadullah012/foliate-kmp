@@ -37,41 +37,39 @@ public open class ReaderModel(
     private var brightnessDismissJob: Job? = null
 
     public fun onEvent(event: ReaderEvent) {
-        viewModelScope.launch {
-            when (event) {
-                is ReaderEvent.Init -> handleInit(event)
-                is ReaderEvent.OnNavigateBack -> _effects.send(ReaderEffect.OnNavigateBack)
-                is ReaderEvent.ToggleControls -> handleToggleControls()
-                is ReaderEvent.UpdateProgress -> handleUpdateProgress(event.progress)
-                is ReaderEvent.LocationUpdated -> handleLocationUpdated(event)
-                is ReaderEvent.TocLoaded -> _state.update { it.copy(tocItems = event.items) }
-                is ReaderEvent.ChangeTheme -> _state.update { it.copy(readerConfig = it.readerConfig.copy(theme = event.theme)) }
-                is ReaderEvent.ChangeFontSize -> handleChangeFontSize(event.delta)
-                is ReaderEvent.SetFontSize -> handleSetFontSize(event.sizePx)
-                is ReaderEvent.ChangeFlow -> _state.update { it.copy(readerConfig = it.readerConfig.copy(flow = event.flow)) }
-                is ReaderEvent.ChangeLineHeight -> _state.update { it.copy(readerConfig = it.readerConfig.copy(lineHeight = event.lineHeight)) }
-                is ReaderEvent.ChangeMargin -> _state.update { it.copy(readerConfig = it.readerConfig.copy(margin = event.margin)) }
-                is ReaderEvent.ChangeTextAlign -> _state.update { it.copy(readerConfig = it.readerConfig.copy(textAlign = event.align)) }
-                is ReaderEvent.ChangeFontFamily -> _state.update { it.copy(readerConfig = it.readerConfig.copy(fontFamily = event.family)) }
-                is ReaderEvent.ResetAppearance -> _state.update { it.copy(readerConfig = EpubReaderConfig()) }
-                is ReaderEvent.OpenSheet -> _state.update { it.copy(activeSheet = event.sheet) }
-                is ReaderEvent.CloseSheet -> _state.update { it.copy(activeSheet = null) }
-                is ReaderEvent.SearchQueryChanged -> _state.update { it.copy(searchQuery = event.query) }
-                is ReaderEvent.SearchResultsLoaded -> _state.update { it.copy(searchResults = event.results, isSearching = false) }
-                is ReaderEvent.ToggleBookmark -> handleToggleBookmark()
-                is ReaderEvent.DeleteBookmark -> handleDeleteBookmark(event.cfi)
-                is ReaderEvent.AdjustBrightness -> handleAdjustBrightness(event.delta)
-                is ReaderEvent.EndBrightness -> handleEndBrightness()
-                is ReaderEvent.TextSelectionChanged -> _state.update { it.copy(textSelection = event.selection) }
-                is ReaderEvent.AddHighlight -> handleAddHighlight(event.color, event.note)
-                is ReaderEvent.DeleteHighlight -> handleDeleteHighlight(event.cfi)
-                is ReaderEvent.ClearSelection -> _state.update { it.copy(textSelection = null) }
-                is ReaderEvent.OnAnnotationClicked -> handleAnnotationClicked(event.cfi)
-                is ReaderEvent.DismissAnnotationDetail -> _state.update { it.copy(selectedAnnotation = null) }
-                is ReaderEvent.ShowFootnote -> _state.update { it.copy(activeFootnote = event.footnote) }
-                is ReaderEvent.DismissFootnote -> _state.update { it.copy(activeFootnote = null) }
-                is ReaderEvent.OnError -> _state.update { it.copy(errorMessage = event.message, isLoading = false) }
-            }
+        when (event) {
+            is ReaderEvent.Init -> viewModelScope.launch { handleInit(event) }
+            is ReaderEvent.OnNavigateBack -> viewModelScope.launch { _effects.send(ReaderEffect.OnNavigateBack) }
+            is ReaderEvent.ToggleControls -> handleToggleControls()
+            is ReaderEvent.UpdateProgress -> handleUpdateProgress(event.progress)
+            is ReaderEvent.LocationUpdated -> handleLocationUpdated(event)
+            is ReaderEvent.TocLoaded -> _state.update { it.copy(tocItems = event.items) }
+            is ReaderEvent.ChangeTheme -> _state.update { it.copy(readerConfig = it.readerConfig.copy(theme = event.theme)) }
+            is ReaderEvent.ChangeFontSize -> handleChangeFontSize(event.delta)
+            is ReaderEvent.SetFontSize -> handleSetFontSize(event.sizePx)
+            is ReaderEvent.ChangeFlow -> _state.update { it.copy(readerConfig = it.readerConfig.copy(flow = event.flow)) }
+            is ReaderEvent.ChangeLineHeight -> _state.update { it.copy(readerConfig = it.readerConfig.copy(lineHeight = event.lineHeight)) }
+            is ReaderEvent.ChangeMargin -> _state.update { it.copy(readerConfig = it.readerConfig.copy(margin = event.margin)) }
+            is ReaderEvent.ChangeTextAlign -> _state.update { it.copy(readerConfig = it.readerConfig.copy(textAlign = event.align)) }
+            is ReaderEvent.ChangeFontFamily -> _state.update { it.copy(readerConfig = it.readerConfig.copy(fontFamily = event.family)) }
+            is ReaderEvent.ResetAppearance -> _state.update { it.copy(readerConfig = EpubReaderConfig()) }
+            is ReaderEvent.OpenSheet -> _state.update { it.copy(activeSheet = event.sheet) }
+            is ReaderEvent.CloseSheet -> _state.update { it.copy(activeSheet = null) }
+            is ReaderEvent.SearchQueryChanged -> _state.update { it.copy(searchQuery = event.query) }
+            is ReaderEvent.SearchResultsLoaded -> _state.update { it.copy(searchResults = event.results, isSearching = false) }
+            is ReaderEvent.ToggleBookmark -> viewModelScope.launch { handleToggleBookmark() }
+            is ReaderEvent.DeleteBookmark -> viewModelScope.launch { handleDeleteBookmark(event.cfi) }
+            is ReaderEvent.AdjustBrightness -> handleAdjustBrightness(event.delta)
+            is ReaderEvent.EndBrightness -> handleEndBrightness()
+            is ReaderEvent.TextSelectionChanged -> _state.update { it.copy(textSelection = event.selection) }
+            is ReaderEvent.AddHighlight -> viewModelScope.launch { handleAddHighlight(event.color, event.note) }
+            is ReaderEvent.DeleteHighlight -> viewModelScope.launch { handleDeleteHighlight(event.cfi) }
+            is ReaderEvent.ClearSelection -> _state.update { it.copy(textSelection = null) }
+            is ReaderEvent.OnAnnotationClicked -> handleAnnotationClicked(event.cfi)
+            is ReaderEvent.DismissAnnotationDetail -> _state.update { it.copy(selectedAnnotation = null) }
+            is ReaderEvent.ShowFootnote -> _state.update { it.copy(activeFootnote = event.footnote) }
+            is ReaderEvent.DismissFootnote -> _state.update { it.copy(activeFootnote = null) }
+            is ReaderEvent.OnError -> _state.update { it.copy(errorMessage = event.message, isLoading = false) }
         }
     }
 
@@ -90,8 +88,16 @@ public open class ReaderModel(
         val annotations = storage.getAnnotations(event.bookId)
         val savedProgress = storage.getProgress(event.bookId)
 
-        val activeProgress = if (event.initialProgress > 0f) event.initialProgress else savedProgress?.first ?: 0f
-        val activeCfi = event.initialCfi ?: savedProgress?.second
+        val activeProgress = if (event.initialProgress > 0f) {
+            event.initialProgress
+        } else if (_state.value.progressFraction > 0f) {
+            _state.value.progressFraction
+        } else {
+            savedProgress?.fraction ?: 0f
+        }
+
+        val activeCfi = event.initialCfi ?: _state.value.currentCfi ?: savedProgress?.cfi
+        val isBookmarked = activeCfi != null && bookmarks.any { it.cfi == activeCfi }
 
         _state.update {
             it.copy(
@@ -99,6 +105,7 @@ public open class ReaderModel(
                 annotations = annotations,
                 progressFraction = activeProgress,
                 currentCfi = activeCfi,
+                isBookmarked = isBookmarked,
                 isLoading = false
             )
         }
@@ -108,11 +115,13 @@ public open class ReaderModel(
         _state.update { it.copy(isControlsVisible = !it.isControlsVisible) }
     }
 
-    private suspend fun handleUpdateProgress(progress: Float) {
+    private fun handleUpdateProgress(progress: Float) {
         val clamped = progress.coerceIn(0f, 1f)
         _state.update { it.copy(progressFraction = clamped) }
         val cfi = _state.value.currentCfi ?: ""
-        storage.saveProgress(_state.value.bookId, clamped, cfi)
+        viewModelScope.launch {
+            storage.saveProgress(_state.value.bookId, clamped, cfi)
+        }
     }
 
     private fun handleLocationUpdated(event: ReaderEvent.LocationUpdated) {

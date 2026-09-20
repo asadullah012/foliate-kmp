@@ -419,6 +419,7 @@ private fun ReaderSelectionArea(
     controller: EpubReaderController,
     model: ReaderModel
 ) {
+    @Suppress("DEPRECATION")
     val clipboardManager = LocalClipboardManager.current
 
     Box(modifier = Modifier.fillMaxSize()) {

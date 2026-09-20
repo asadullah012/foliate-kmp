@@ -21,6 +21,7 @@ import kotlinx.cinterop.cValue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.decodeFromJsonElement
@@ -93,7 +94,7 @@ internal actual fun PlatformEpubWebView(
 
                 @ObjCSignatureOverride
                 override fun webView(webView: WKWebView, didFinishNavigation: WKNavigation?) {
-                    val cfiArg = if (!initialCfi.isNullOrBlank()) "'${initialCfi.replace("'", "\\'")}'" else "null"
+                    val cfiArg = if (!initialCfi.isNullOrBlank()) Json.encodeToString(initialCfi) else "null"
                     val js = "if (window.readerController && !window._bookOpened) { window.readerController.openBook('$BOOK_URL', $cfiArg); }"
                     webView.evaluateJavaScript(js, null)
                 }
@@ -330,7 +331,7 @@ private class IosEpubScriptMessageHandler(
                 val type = element["type"]?.jsonPrimitive?.contentOrNull
                 when (type) {
                     "initialized" -> {
-                        val cfiArg = if (!initialCfi.isNullOrBlank()) "'${initialCfi.replace("'", "\\'")}'" else "null"
+                        val cfiArg = if (!initialCfi.isNullOrBlank()) json.encodeToString(initialCfi) else "null"
                         val js = "window.readerController && window.readerController.openBook('$BOOK_URL', $cfiArg)"
                         getWebView()?.evaluateJavaScript(js, null)
                     }
