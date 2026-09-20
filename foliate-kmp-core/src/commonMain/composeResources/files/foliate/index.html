@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>EPUB Reader</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #FFFFFF;
+            color: #121212;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        #view {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: inherit;
+            z-index: 999;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 16px;
+            color: inherit;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        #loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .spinner {
+            border: 3px solid rgba(128, 128, 128, 0.2);
+            border-top: 3px solid currentColor;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        (function() {
+            function forward(level, args) {
+                try {
+                    var str = Array.from(args).map(function(a) {
+                        if (a instanceof Error) return a.stack || a.message;
+                        if (typeof a === 'object') {
+                            try { return JSON.stringify(a); } catch (e) { return String(a); }
+                        }
+                        return String(a);
+                    }).join(' ');
+                    var payload = JSON.stringify({ type: 'log', level: level, message: str });
+                    if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.epubBridge) {
+                        window.webkit.messageHandlers.epubBridge.postMessage(payload);
+                    } else if (window.AndroidBridge && window.AndroidBridge.postMessage) {
+                        window.AndroidBridge.postMessage(payload);
+                    }
+                } catch (e) {}
+            }
+            var oldLog = console.log, oldWarn = console.warn, oldError = console.error, oldInfo = console.info;
+            console.log = function() { oldLog.apply(console, arguments); forward('LOG', arguments); };
+            console.info = function() { oldInfo.apply(console, arguments); forward('INFO', arguments); };
+            console.warn = function() { oldWarn.apply(console, arguments); forward('WARN', arguments); };
+            console.error = function() { oldError.apply(console, arguments); forward('ERROR', arguments); };
+            window.addEventListener('error', function(e) {
+                forward('ERROR', ['Uncaught error:', e.message, 'at', e.filename + ':' + e.lineno + ':' + e.colno]);
+            });
+            window.addEventListener('unhandledrejection', function(e) {
+                forward('ERROR', ['Unhandled rejection:', e.reason ? (e.reason.stack || e.reason.message || e.reason) : 'unknown']);
+            });
+            console.log('[Foliate-HTML] Early console bridge initialized');
+        })();
+    </script>
+    <script type="module">
+        console.log('[Foliate-HTML] Loading view.js and overlayer.js modules...');
+        import { View } from './view.js'
+        import { Overlayer } from './overlayer.js'
+        console.log('[Foliate-HTML] Modules loaded successfully');
+
+        if (!customElements.get('foliate-view')) {
+            customElements.define('foliate-view', View)
+        }
+
+        const view = document.getElementById('view')
+        const loadingOverlay = document.getElementById('loading-overlay')
+
+        let currentSettings = {
+            fontSize: 18,
+            bgColor: '#FFFFFF',
+            textColor: '#121212',
+            fontFamily: 'system-ui, -apple-system, sans-serif',
+            lineHeight: '1.6',
+            flow: 'paginated',
+            margin: 32,
+            textAlign: 'justify'
+        }
+
+        const savedAnnotations = new Map()
+
+        function postToNative(payload) {
+            const jsonStr = JSON.stringify(payload)
+            if (window.AndroidBridge && window.AndroidBridge.postMessage) {
+                window.AndroidBridge.postMessage(jsonStr)
+            } else if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.epubBridge) {
+                window.webkit.messageHandlers.epubBridge.postMessage(jsonStr)
+            } else {
+                console.log('[NativeBridge]', jsonStr)
+            }
+        }
+
+        function applyStylesToDoc(doc) {
+            if (!doc || !doc.head) return
+            let styleEl = doc.getElementById('foliate-custom-style')
+            if (!styleEl) {
+                styleEl = doc.createElement('style')
+                styleEl.id = 'foliate-custom-style'
+                doc.head.appendChild(styleEl)
+            }
+            styleEl.textContent = `
+                html, body {
+                    background-color: ${currentSettings.bgColor} !important;
+                    color: ${currentSettings.textColor} !important;
+                    font-size: ${currentSettings.fontSize}px !important;
+                    font-family: ${currentSettings.fontFamily} !important;
+                    line-height: ${currentSettings.lineHeight} !important;
+                    text-align: ${currentSettings.textAlign} !important;
+                }
+                p, div, span, li, a {
+                    color: ${currentSettings.textColor} !important;
+                    text-align: ${currentSettings.textAlign} !important;
+                }
+                p {
+                    margin-bottom: 0.8em !important;
+                }
+                a {
+                    text-decoration: underline;
+                    color: inherit !important;
+                }
+                img {
+                    max-width: 100% !important;
+                    height: auto !important;
+                }
+            `
+            if (doc.body) {
+                doc.body.style.backgroundColor = currentSettings.bgColor
+                doc.body.style.color = currentSettings.textColor
+            }
+        }
+
+        function updateAllStyles() {
+            document.body.style.backgroundColor = currentSettings.bgColor
+            document.body.style.color = currentSettings.textColor
+            try {
+                if (view.renderer && view.renderer.getContents) {
+                    for (const { doc } of view.renderer.getContents()) {
+                        applyStylesToDoc(doc)
+                        if (doc) {
+                            attachGestures(doc)
+                            attachSelectionListener(doc)
+                            if (doc.defaultView) attachGestures(doc.defaultView)
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error('Failed to update all styles', e)
+            }
+        }
+
+        function mapTapToHostViewport(targetDoc, clientX) {
+            if (!targetDoc) return clientX
+            try {
+                const win = targetDoc.defaultView
+                if (win && win !== window && win.frameElement) {
+                    const rect = win.frameElement.getBoundingClientRect()
+                    return clientX + rect.left
+                }
+            } catch (e) {
+                console.error('[Foliate-HTML] Error mapping tap coordinate:', e)
+            }
+            return clientX
+        }
+
+        function isFootnoteLink(a) {
+            if (!a || !a.getAttribute) return false
+            const rel = a.getAttribute('rel') || ''
+            const role = a.getAttribute('role') || ''
+            const epubType = a.getAttribute('epub:type') || ''
+            const className = a.className || ''
+            const href = a.getAttribute('href') || ''
+
+            if (epubType === 'noteref' || role === 'doc-noteref' || rel.includes('footnote')) return true
+            if (typeof className === 'string' && (className.includes('footnote') || className.includes('noteref'))) return true
+            if (a.closest && a.closest('sup')) return true
+            if (href.startsWith('#fn') || href.startsWith('#note') || href.includes('#fn') || href.includes('#note')) return true
+            return false
+        }
+
+        function extractFootnote(doc, href) {
+            if (!href) return null
+            try {
+                const hashIdx = href.indexOf('#')
+                if (hashIdx === -1) return null
+                const id = href.slice(hashIdx + 1)
+                if (!id) return null
+
+                let el = doc ? doc.getElementById(id) : null
+                if (!el && doc) {
+                    try { el = doc.querySelector(`[id="${CSS.escape(id)}"]`) } catch (e) {}
+                }
+                if (!el && view.renderer && view.renderer.getContents) {
+                    for (const { doc: otherDoc } of view.renderer.getContents()) {
+                        if (otherDoc) {
+                            el = otherDoc.getElementById(id)
+                            if (el) break
+                        }
+                    }
+                }
+                if (!el) return null
+
+                const clone = el.cloneNode(true)
+                const backlinks = clone.querySelectorAll('a[epub\\:type="backlink"], a[role="doc-backlink"], a.footnote-backref, a.reversefootnote')
+                for (const b of backlinks) b.remove()
+                const text = (clone.innerText || clone.textContent || '').trim()
+                return text || null
+            } catch (e) {
+                console.error('[Foliate-HTML] Error extracting footnote:', e)
+                return null
+            }
+        }
+
+        let selectionDebounceTimer = null
+        let hasActiveSelection = false
+
+        function handleSelectionChange(doc) {
+            if (selectionDebounceTimer) clearTimeout(selectionDebounceTimer)
+            selectionDebounceTimer = setTimeout(() => {
+                try {
+                    const win = doc.defaultView || window
+                    const sel = win.getSelection ? win.getSelection() : window.getSelection()
+                    const text = (sel && !sel.isCollapsed) ? sel.toString().trim() : ''
+                    if (!text) {
+                        if (hasActiveSelection) {
+                            hasActiveSelection = false
+                            postToNative({
+                                type: 'selection',
+                                text: '',
+                                cfi: '',
+                                sectionIndex: 0
+                            })
+                        }
+                        return
+                    }
+
+                    const range = sel.getRangeAt(0)
+                    const contents = view.renderer?.getContents?.() || []
+                    const content = contents.find(c => c.doc === doc)
+                    const index = content?.index ?? 0
+                    const cfi = view.getCFI ? view.getCFI(index, range) : ''
+
+                    if (cfi) {
+                        hasActiveSelection = true
+                        postToNative({
+                            type: 'selection',
+                            text: text,
+                            cfi: cfi,
+                            sectionIndex: index
+                        })
+                    }
+                } catch (e) {
+                    console.error('[Foliate-HTML] Selection change error:', e)
+                }
+            }, 200)
+        }
+
+        function attachSelectionListener(doc) {
+            if (!doc || doc._foliateSelectionAttached) return
+            doc._foliateSelectionAttached = true
+            console.log('[Foliate-HTML] Attaching selectionchange listener to doc')
+            doc.addEventListener('selectionchange', () => handleSelectionChange(doc))
+        }
+
+        function attachGestures(target) {
+            if (!target) return
+            if (target._foliateGesturesAttached) return
+            target._foliateGesturesAttached = true
+            console.log('[Foliate-HTML] Attaching gesture listeners to ' + (target.nodeName || 'window/doc'))
+
+            const win = target.defaultView || (target.window === target ? target : window)
+
+            let touchStartX = 0
+            let touchStartY = 0
+            let touchStartTime = 0
+            let isVerticalSwipe = false
+            let lastTouchY = 0
+            let lastTapTimestamp = 0
+
+            const onTouchStart = e => {
+                if (e.touches && e.touches.length === 1) {
+                    touchStartX = e.touches[0].clientX
+                    touchStartY = e.touches[0].clientY
+                    lastTouchY = e.touches[0].clientY
+                    touchStartTime = Date.now()
+                    isVerticalSwipe = false
+                }
+            }
+
+            const onTouchMove = e => {
+                if (!e.touches || e.touches.length !== 1) return
+                const touch = e.touches[0]
+                const clientY = touch.clientY
+                const clientX = touch.clientX
+                const diffX = clientX - touchStartX
+                const diffY = clientY - touchStartY
+                const width = win.innerWidth || window.innerWidth
+                const height = win.innerHeight || window.innerHeight
+                const isLeftZone = touchStartX < width * 0.35
+
+                // Vertical swipe for brightness:
+                if (currentSettings.flow !== 'scrolled' || isLeftZone) {
+                    if (!isVerticalSwipe && Math.abs(diffY) > 20 && Math.abs(diffY) > Math.abs(diffX) * 1.5) {
+                        isVerticalSwipe = true
+                    }
+                    if (isVerticalSwipe) {
+                        if (e.cancelable) e.preventDefault()
+                        e.stopPropagation()
+                        const stepY = lastTouchY - clientY // Upward move is positive, downward is negative
+                        lastTouchY = clientY
+                        const delta = stepY / (height * 0.5)
+                        postToNative({
+                            type: 'adjust_brightness',
+                            delta: delta
+                        })
+                    }
+                }
+            }
+
+            const executeTap = (clientX, targetEl, targetDoc) => {
+                // 1. Check if clicking a link
+                const link = targetEl && targetEl.closest && targetEl.closest('a[href]')
+                if (link) {
+                    const href = link.getAttribute('href') || ''
+                    if (isFootnoteLink(link)) {
+                        const footnoteText = extractFootnote(targetDoc, href)
+                        if (footnoteText) {
+                            console.log('[Foliate-HTML] Tap intercepted footnote link:', href)
+                            postToNative({
+                                type: 'footnote',
+                                href: href,
+                                text: footnoteText,
+                                title: link.textContent ? link.textContent.trim() : null
+                            })
+                            return
+                        }
+                    }
+                    console.log('[Foliate-HTML] Tap on regular link, ignoring reader tap action:', href)
+                    return
+                }
+
+                // 2. Ignore tap if text is selected
+                const selection = (win.getSelection && win.getSelection().toString()) ||
+                                  (window.getSelection && window.getSelection().toString()) || ''
+                if (selection.trim().length > 0) {
+                    console.log('[Foliate-HTML] Tap ignored: text selected')
+                    return
+                }
+
+                const hostX = mapTapToHostViewport(targetDoc, clientX)
+                const hostWidth = window.innerWidth
+                const ratio = hostX / hostWidth
+
+                console.log(`[Foliate-HTML] Tap detected: clientX=${clientX}, hostX=${hostX}, hostWidth=${hostWidth}, ratio=${ratio.toFixed(2)}`)
+
+                if (currentSettings.flow === 'scrolled') {
+                    if (ratio < 0.20) {
+                        console.log('[Foliate-HTML] Scrolled mode tap left -> prev')
+                        view.prev()
+                    } else if (ratio > 0.80) {
+                        console.log('[Foliate-HTML] Scrolled mode tap right -> next')
+                        view.next()
+                    } else {
+                        console.log('[Foliate-HTML] Scrolled mode tap middle -> toggle controls')
+                        postToNative({ type: 'toggle_controls' })
+                    }
+                } else {
+                    // Paginated mode:
+                    // Left 25%: Previous page
+                    // Right 25%: Next page
+                    // Middle 50%: Show/hide reader menu
+                    if (ratio < 0.25) {
+                        console.log('[Foliate-HTML] Tap left zone -> prev page')
+                        view.prev()
+                    } else if (ratio > 0.75) {
+                        console.log('[Foliate-HTML] Tap right zone -> next page')
+                        view.next()
+                    } else {
+                        console.log('[Foliate-HTML] Tap middle zone -> toggle controls')
+                        postToNative({ type: 'toggle_controls' })
+                    }
+                }
+            }
+
+            const onTouchEnd = e => {
+                if (isVerticalSwipe) {
+                    isVerticalSwipe = false
+                    postToNative({ type: 'end_brightness' })
+                    return
+                }
+
+                if (!e.changedTouches || e.changedTouches.length !== 1) return
+                const touch = e.changedTouches[0]
+                const diffX = touch.clientX - touchStartX
+                const diffY = touch.clientY - touchStartY
+                const duration = Date.now() - touchStartTime
+
+                // Tap detection: short duration and minimal finger movement
+                if (duration < 350 && Math.abs(diffX) < 25 && Math.abs(diffY) < 25) {
+                    lastTapTimestamp = Date.now()
+                    const targetDoc = e.target ? e.target.ownerDocument : (target.nodeType === 9 ? target : document)
+                    executeTap(touch.clientX, e.target, targetDoc)
+                }
+            }
+
+            const onClick = e => {
+                // 1. Intercept footnote links
+                const link = e.target && e.target.closest && e.target.closest('a[href]')
+                if (link && isFootnoteLink(link)) {
+                    const href = link.getAttribute('href') || ''
+                    const targetDoc = e.target ? e.target.ownerDocument : (target.nodeType === 9 ? target : document)
+                    const footnoteText = extractFootnote(targetDoc, href)
+                    if (footnoteText) {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        console.log('[Foliate-HTML] Click intercepted footnote link:', href)
+                        postToNative({
+                            type: 'footnote',
+                            href: href,
+                            text: footnoteText,
+                            title: link.textContent ? link.textContent.trim() : null
+                        })
+                        return
+                    }
+                }
+
+                // Ignore click if already handled by touchend within 400ms
+                if (Date.now() - lastTapTimestamp < 400) {
+                    return
+                }
+                const targetDoc = e.target ? e.target.ownerDocument : (target.nodeType === 9 ? target : document)
+                executeTap(e.clientX, e.target, targetDoc)
+            }
+
+            target.addEventListener('touchstart', onTouchStart, { passive: false, capture: true })
+            target.addEventListener('touchmove', onTouchMove, { passive: false, capture: true })
+            target.addEventListener('touchend', onTouchEnd, { passive: false, capture: true })
+            target.addEventListener('click', onClick, { capture: true })
+        }
+
+        function attachGesturesToAll() {
+            attachGestures(window)
+            attachGestures(document)
+            attachSelectionListener(document)
+            try {
+                if (view.renderer && view.renderer.getContents) {
+                    for (const { doc } of view.renderer.getContents()) {
+                        if (doc) {
+                            attachGestures(doc)
+                            attachSelectionListener(doc)
+                            if (doc.defaultView) attachGestures(doc.defaultView)
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error('Error attaching gestures to contents:', e)
+            }
+        }
+
+        view.addEventListener('draw-annotation', ({ detail: { draw, annotation } }) => {
+            console.log('[Foliate-HTML] draw-annotation triggered for CFI:', annotation.value)
+            draw(Overlayer.highlight, { color: annotation.color || '#FFEB3B' })
+        })
+
+        view.addEventListener('show-annotation', ({ detail: { value } }) => {
+            console.log('[Foliate-HTML] show-annotation clicked for CFI:', value)
+            postToNative({ type: 'annotation_click', cfi: value })
+        })
+
+        view.addEventListener('create-overlay', ({ detail: { index } }) => {
+            console.log('[Foliate-HTML] create-overlay for section index:', index)
+            for (const item of savedAnnotations.values()) {
+                view.addAnnotation(item)
+            }
+        })
+
+        view.addEventListener('load', ({ detail: { doc } }) => {
+            applyStylesToDoc(doc)
+            if (doc) {
+                attachGestures(doc)
+                attachSelectionListener(doc)
+                if (doc.defaultView) attachGestures(doc.defaultView)
+            }
+        })
+
+        view.addEventListener('relocate', ({ detail }) => {
+            attachGesturesToAll()
+            postToNative({
+                type: 'relocate',
+                cfi: detail.cfi,
+                fraction: detail.fraction ?? 0,
+                location: detail.location,
+                chapterTitle: detail.tocItem?.label ?? null,
+                sectionIndex: detail.index ?? 0,
+                totalSections: view.book?.sections?.length ?? 1
+            })
+        })
+
+        window.readerController = {
+            async openBook(bookSource, initialCfi) {
+                console.log('[Foliate-HTML] openBook called: source=' + bookSource + ', cfi=' + initialCfi);
+                if (window._bookOpened) {
+                    console.log('[Foliate-HTML] Book already opened, skipping duplicate call');
+                    return;
+                }
+                window._bookOpened = true;
+                try {
+                    loadingOverlay.classList.remove('hidden')
+                    console.log('[Foliate-HTML] Starting view.open(bookSource)...');
+                    await view.open(bookSource)
+                    if (currentSettings.flow && view.renderer) {
+                        view.renderer.setAttribute('flow', currentSettings.flow)
+                    }
+                    console.log('[Foliate-HTML] view.open complete! Initializing view with cfi:', initialCfi);
+                    await view.init({ lastLocation: initialCfi })
+                    console.log('[Foliate-HTML] view.init complete!');
+                    attachGesturesToAll();
+                    
+                    const mapTocItem = item => ({
+                        id: String(item.id ?? ''),
+                        label: String(item.label ?? ''),
+                        href: String(item.href ?? ''),
+                        subitems: (item.subitems || []).map(mapTocItem)
+                    })
+                    const tocItems = (view.book?.toc ?? []).map(mapTocItem)
+                    console.log('[Foliate-HTML] Extracted ' + tocItems.length + ' TOC items');
+                    postToNative({ type: 'toc', items: tocItems })
+                    postToNative({ type: 'ready' })
+                    loadingOverlay.classList.add('hidden')
+                    console.log('[Foliate-HTML] Reader ready, overlay hidden');
+                } catch (err) {
+                    console.error('[Foliate-HTML] Error opening book:', err);
+                    loadingOverlay.classList.add('hidden')
+                    postToNative({ type: 'error', message: err.message || String(err) })
+                }
+            },
+            nextPage() {
+                console.log('[Foliate-HTML] nextPage() called')
+                view.next()
+            },
+            prevPage() {
+                console.log('[Foliate-HTML] prevPage() called')
+                view.prev()
+            },
+            goToCfi(cfi) {
+                console.log('[Foliate-HTML] goToCfi called: ' + cfi)
+                view.goTo(cfi)
+            },
+            goToHref(href) {
+                console.log('[Foliate-HTML] goToHref called: ' + href)
+                view.goTo(href)
+            },
+            goToFraction(fraction) {
+                console.log('[Foliate-HTML] goToFraction called: ' + fraction)
+                view.goToFraction(fraction)
+            },
+            setTheme(bgColor, textColor) {
+                console.log('[Foliate-HTML] setTheme called: bg=' + bgColor + ', fg=' + textColor)
+                currentSettings.bgColor = bgColor
+                currentSettings.textColor = textColor
+                updateAllStyles()
+            },
+            setFontSize(sizePx) {
+                console.log('[Foliate-HTML] setFontSize called: ' + sizePx + 'px')
+                currentSettings.fontSize = sizePx
+                updateAllStyles()
+            },
+            setFontFamily(fontFamily) {
+                console.log('[Foliate-HTML] setFontFamily called: ' + fontFamily)
+                currentSettings.fontFamily = fontFamily
+                updateAllStyles()
+            },
+            setLayout(flow) {
+                console.log('[Foliate-HTML] setLayout called: ' + flow)
+                currentSettings.flow = flow
+                if (view) {
+                    view.setAttribute('flow', flow)
+                    if (view.renderer) {
+                        view.renderer.setAttribute('flow', flow)
+                    }
+                }
+            },
+            setLineHeight(lineHeight) {
+                console.log('[Foliate-HTML] setLineHeight called: ' + lineHeight)
+                currentSettings.lineHeight = String(lineHeight)
+                updateAllStyles()
+            },
+            setMargin(marginPx) {
+                console.log('[Foliate-HTML] setMargin called: ' + marginPx + 'px')
+                currentSettings.margin = marginPx
+                if (view && view.renderer) {
+                    view.renderer.setAttribute('margin', marginPx + 'px')
+                }
+                updateAllStyles()
+            },
+            setTextAlign(textAlign) {
+                console.log('[Foliate-HTML] setTextAlign called: ' + textAlign)
+                currentSettings.textAlign = textAlign
+                updateAllStyles()
+            },
+            async search(query) {
+                console.log('[Foliate-HTML] Starting search for: ' + query)
+                if (!view || !view.search) {
+                    postToNative({ type: 'search_results', items: [] })
+                    return
+                }
+                try {
+                    const results = []
+                    const iter = view.search({ query })
+                    for await (const result of iter) {
+                        if (result === 'done') break
+                        if (result.subitems && result.subitems.length > 0) {
+                            for (const sub of result.subitems) {
+                                results.push({
+                                    cfi: sub.cfi,
+                                    chapterTitle: result.label || null,
+                                    excerpt: sub.excerpt || ''
+                                })
+                            }
+                        }
+                    }
+                    console.log('[Foliate-HTML] Search finished with ' + results.length + ' results')
+                    postToNative({ type: 'search_results', items: results })
+                } catch (err) {
+                    console.error('[Foliate-HTML] Search error:', err)
+                    postToNative({ type: 'search_results', items: [] })
+                }
+            },
+            clearSearch() {
+                console.log('[Foliate-HTML] Clearing search')
+                if (view && view.clearSearch) {
+                    view.clearSearch()
+                }
+            },
+            addAnnotation(cfi, color, note) {
+                console.log('[Foliate-HTML] addAnnotation called: cfi=' + cfi + ', color=' + color)
+                const item = { value: cfi, color: color || '#FFEB3B', note: note || '' }
+                savedAnnotations.set(cfi, item)
+                if (view && view.addAnnotation) {
+                    view.addAnnotation(item)
+                }
+            },
+            deleteAnnotation(cfi) {
+                console.log('[Foliate-HTML] deleteAnnotation called: cfi=' + cfi)
+                savedAnnotations.delete(cfi)
+                if (view && view.deleteAnnotation) {
+                    view.deleteAnnotation({ value: cfi })
+                }
+            },
+            clearSelection() {
+                console.log('[Foliate-HTML] clearSelection called')
+                hasActiveSelection = false
+                try {
+                    window.getSelection()?.removeAllRanges?.()
+                    if (view.renderer && view.renderer.getContents) {
+                        for (const { doc } of view.renderer.getContents()) {
+                            if (doc && doc.defaultView) {
+                                doc.defaultView.getSelection()?.removeAllRanges?.()
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.error('[Foliate-HTML] Error clearing selection:', e)
+                }
+            }
+        }
+
+        attachGesturesToAll();
+        console.log('[Foliate-HTML] Module script initialized, sending initialized to native');
+        postToNative({ type: 'initialized' })
+    </script>
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+    <foliate-view id="view"></foliate-view>
+</body>
+</html>
