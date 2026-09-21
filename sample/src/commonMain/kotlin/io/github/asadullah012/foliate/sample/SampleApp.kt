@@ -55,6 +55,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import io.github.asadullah012.foliate.compose.ui.ReaderScreen
 import io.github.asadullah012.foliate.sample.resources.Res
+import kotlin.coroutines.cancellation.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
@@ -87,6 +88,8 @@ public fun SampleApp() {
                         }
                     }
                     bookFilePath = targetPath.toString()
+                } catch (e: CancellationException) {
+                    throw e
                 } catch (e: Exception) {
                     errorMessage = "Failed to load bundled EPUB: ${e.message}"
                 } finally {
@@ -114,8 +117,19 @@ public fun SampleApp() {
                 }
 
                 Screen.Reader -> {
+                    SampleBackHandler(enabled = true) {
+                        currentScreen = Screen.Home
+                    }
+
                     val path = bookFilePath
-                    if (path != null) {
+                    if (isExtracting) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            CircularProgressIndicator()
+                        }
+                    } else if (path != null) {
                         ReaderScreen(
                             filePath = path,
                             bookTitle = "Alice's Adventures in Wonderland",

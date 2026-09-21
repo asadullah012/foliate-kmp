@@ -7,3 +7,14 @@ build/
 local.properties
 .kotlin/
 .vscode/
+
+# Xcode & Apple
+*.xcuserstate
+xcuserdata/
+**/xcuserdata/
+DerivedData/
+*.hmap
+*.xccheckout
+*.moved-aside
+Config.local.xcconfig
+**/Config.local.xcconfig

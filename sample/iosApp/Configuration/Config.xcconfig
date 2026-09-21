@@ -1,0 +1,10 @@
+TEAM_ID=
+DEVELOPMENT_TEAM=
+PRODUCT_NAME=FoliateSample
+PRODUCT_BUNDLE_IDENTIFIER=io.github.asadullah012.foliate.sample$(TEAM_ID)
+
+CURRENT_PROJECT_VERSION=1
+MARKETING_VERSION=0.1.0
+
+// Optional local developer overrides (gitignored):
+#include? "Config.local.xcconfig"
