@@ -99,6 +99,22 @@ fun CustomReader(bookPath: String) {
 
 ---
 
+## Sample App
+
+The repository includes a runnable Compose Multiplatform sample app in the `:sample` module. It bundles a public-domain copy of *Alice's Adventures in Wonderland* to demonstrate pagination, themes, CFI restoration, search, and text annotations out of the box.
+
+### Run on Android
+```bash
+./gradlew :sample:installDebug
+```
+
+### Build for iOS Simulator
+```bash
+./gradlew :sample:compileKotlinIosSimulatorArm64
+```
+
+---
+
 ## Features
 
 - **EPUB rendering**: the modular foliate-js engine does the work.

@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 rootProject.name = "foliate-kmp"
 include(":foliate-kmp-core")
 include(":foliate-kmp-compose")
+include(":sample")
