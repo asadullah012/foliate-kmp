@@ -3,9 +3,6 @@ name: Publish to Maven Central
 on:
   release:
     types: [ published ]
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
     inputs:
       version:
@@ -45,9 +42,14 @@ jobs:
           VERSION_ARG=""
           if [ -n "${{ inputs.version }}" ]; then
             VERSION_ARG="-PVERSION_NAME=${{ inputs.version }}"
+          elif [ -n "${{ github.event.release.tag_name }}" ]; then
+            TAG_VERSION="${{ github.event.release.tag_name }}"
+            TAG_VERSION="${TAG_VERSION#v}"
+            echo "Publishing release from release tag: $TAG_VERSION"
+            VERSION_ARG="-PVERSION_NAME=${TAG_VERSION}"
           elif [[ "${GITHUB_REF:-}" == refs/tags/v* ]]; then
             TAG_VERSION="${GITHUB_REF#refs/tags/v}"
-            echo "Publishing release from tag: $TAG_VERSION"
+            echo "Publishing release from tag ref: $TAG_VERSION"
             VERSION_ARG="-PVERSION_NAME=${TAG_VERSION}"
           fi
           ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache $VERSION_ARG
