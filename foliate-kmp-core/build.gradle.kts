@@ -9,13 +9,34 @@ plugins {
 }
 
 kotlin {
+    explicitApi()
+
+    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+    abiValidation()
+
     android {
-        namespace = "io.github.galib.foliate"
+        namespace = "io.github.asadullah012.foliate"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
         withHostTest {}
+
+        // The Android KMP library plugin keeps resource processing off by default.
+        // Without this flag the AAR contains no assets, and the foliate-js engine
+        // never reaches a consumer application.
+        androidResources {
+            enable = true
+        }
+
+        // The AAR carries these rules, so a consumer application that uses R8
+        // needs no extra configuration.
+        optimization {
+            consumerKeepRules.publish = true
+            consumerKeepRules.file("consumer-rules.pro")
+        }
     }
 
+    // Compose Multiplatform publishes no iosX64 artifacts, so an Intel simulator
+    // target is not possible. Apple silicon simulators use iosSimulatorArm64.
     iosArm64()
     iosSimulatorArm64()
 
@@ -51,35 +72,25 @@ kotlin {
     }
 }
 
+// Pin the generated resource package. The default value derives from the Maven group
+// and the module name, so it changes whenever the coordinates change. The platform
+// bridges read the engine files through this class, and the name must stay stable.
+compose.resources {
+    packageOfResClass = "io.github.asadullah012.foliate.resources"
+    generateResClass = always
+}
+
 mavenPublishing {
     publishToMavenCentral(automaticRelease = true)
-    if (project.hasProperty("signing.keyId") || project.hasProperty("signing.gnupg.keyName")) {
+
+    // The release workflow supplies the key through ORG_GRADLE_PROJECT_signingInMemoryKey.
+    // Test for that property too, or the upload carries no signature and Maven
+    // Central rejects it.
+    if (
+        project.hasProperty("signingInMemoryKey") ||
+        project.hasProperty("signing.keyId") ||
+        project.hasProperty("signing.gnupg.keyName")
+    ) {
         signAllPublications()
-    }
-
-    coordinates(artifactId = "foliate-kmp-core")
-
-    pom {
-        name.set("foliate-kmp-core")
-        description.set("Foliate-js core engine and WebView bridge for Kotlin Multiplatform (Android & iOS).")
-        url.set(providers.gradleProperty("POM_URL"))
-        licenses {
-            license {
-                name.set(providers.gradleProperty("POM_LICENSE_NAME"))
-                url.set(providers.gradleProperty("POM_LICENSE_URL"))
-                distribution.set(providers.gradleProperty("POM_LICENSE_DIST"))
-            }
-        }
-        developers {
-            developer {
-                id.set(providers.gradleProperty("POM_DEVELOPER_ID"))
-                name.set(providers.gradleProperty("POM_DEVELOPER_NAME"))
-            }
-        }
-        scm {
-            url.set(providers.gradleProperty("POM_SCM_URL"))
-            connection.set(providers.gradleProperty("POM_SCM_CONNECTION"))
-            developerConnection.set(providers.gradleProperty("POM_SCM_DEV_CONNECTION"))
-        }
     }
 }

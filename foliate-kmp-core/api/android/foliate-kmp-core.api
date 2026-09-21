@@ -1,0 +1,443 @@
+public final class io/github/asadullah012/foliate/EpubReaderController {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun addAnnotation (Lio/github/asadullah012/foliate/model/EpubAnnotation;)V
+	public final fun applyConfig (Lio/github/asadullah012/foliate/model/EpubReaderConfig;)V
+	public final fun clearSearch ()V
+	public final fun clearSelection ()V
+	public final fun deleteAnnotation (Ljava/lang/String;)V
+	public final fun getAnnotationClickEvents ()Lkotlinx/coroutines/flow/SharedFlow;
+	public final fun getBrightnessEvents ()Lkotlinx/coroutines/flow/SharedFlow;
+	public final fun getEndBrightnessEvents ()Lkotlinx/coroutines/flow/SharedFlow;
+	public final fun getErrorMessage ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun getFootnoteEvents ()Lkotlinx/coroutines/flow/SharedFlow;
+	public final fun getLocation ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun getSearchResults ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun getTextSelection ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun getToc ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun getToggleControlsEvents ()Lkotlinx/coroutines/flow/SharedFlow;
+	public final fun goToCfi (Ljava/lang/String;)V
+	public final fun goToFraction (F)V
+	public final fun goToHref (Ljava/lang/String;)V
+	public final fun isReady ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun isSearching ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun nextPage ()V
+	public final fun prevPage ()V
+	public final fun search (Ljava/lang/String;)V
+	public final fun setFontFamily (Ljava/lang/String;)V
+	public final fun setFontSize (I)V
+	public final fun setLayout (Lio/github/asadullah012/foliate/model/EpubReaderFlow;)V
+	public final fun setLineHeight (F)V
+	public final fun setMargin (I)V
+	public final fun setTextAlign (Ljava/lang/String;)V
+	public final fun setTheme (Lio/github/asadullah012/foliate/model/EpubReaderTheme;)V
+}
+
+public abstract interface class io/github/asadullah012/foliate/domain/EpubReaderStorage {
+	public abstract fun deleteAnnotation (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteBookmark (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAnnotations (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getBookmarks (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getProgress (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun saveAnnotation (Ljava/lang/String;Lio/github/asadullah012/foliate/model/EpubAnnotation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun saveBookmark (Ljava/lang/String;Lio/github/asadullah012/foliate/model/EpubBookmark;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun saveProgress (Ljava/lang/String;FLjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun saveProgress (Ljava/lang/String;Lio/github/asadullah012/foliate/model/EpubProgress;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/asadullah012/foliate/domain/EpubReaderStorage$DefaultImpls {
+	public static fun saveProgress (Lio/github/asadullah012/foliate/domain/EpubReaderStorage;Ljava/lang/String;FLjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/asadullah012/foliate/domain/InMemoryEpubReaderStorage : io/github/asadullah012/foliate/domain/EpubReaderStorage {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun deleteAnnotation (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteBookmark (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAnnotations (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getBookmarks (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getProgress (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun saveAnnotation (Ljava/lang/String;Lio/github/asadullah012/foliate/model/EpubAnnotation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun saveBookmark (Ljava/lang/String;Lio/github/asadullah012/foliate/model/EpubBookmark;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun saveProgress (Ljava/lang/String;FLjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun saveProgress (Ljava/lang/String;Lio/github/asadullah012/foliate/model/EpubProgress;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubAnnotation {
+	public static final field $stable I
+	public static final field Companion Lio/github/asadullah012/foliate/model/EpubAnnotation$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Lio/github/asadullah012/foliate/model/EpubAnnotation;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubAnnotation;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubAnnotation;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getNote ()Ljava/lang/String;
+	public final fun getText ()Ljava/lang/String;
+	public final fun getTimestamp ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class io/github/asadullah012/foliate/model/EpubAnnotation$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/model/EpubAnnotation$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/asadullah012/foliate/model/EpubAnnotation;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/asadullah012/foliate/model/EpubAnnotation;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubAnnotation$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubBookmark {
+	public static final field $stable I
+	public static final field Companion Lio/github/asadullah012/foliate/model/EpubBookmark$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JF)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()F
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;JF)Lio/github/asadullah012/foliate/model/EpubBookmark;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubBookmark;Ljava/lang/String;Ljava/lang/String;JFILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubBookmark;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public final fun getProgressFraction ()F
+	public final fun getTimestamp ()J
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class io/github/asadullah012/foliate/model/EpubBookmark$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/model/EpubBookmark$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/asadullah012/foliate/model/EpubBookmark;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/asadullah012/foliate/model/EpubBookmark;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubBookmark$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubFontOption {
+	public static final field $stable I
+	public static final field Companion Lio/github/asadullah012/foliate/model/EpubFontOption$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/asadullah012/foliate/model/EpubFontOption;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubFontOption;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubFontOption;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getFontFamilyStack ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubFontOption$Companion {
+	public final fun getDEFAULT_FONTS ()Ljava/util/List;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubFootnote {
+	public static final field $stable I
+	public static final field Companion Lio/github/asadullah012/foliate/model/EpubFootnote$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/asadullah012/foliate/model/EpubFootnote;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubFootnote;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubFootnote;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHref ()Ljava/lang/String;
+	public final fun getText ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class io/github/asadullah012/foliate/model/EpubFootnote$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/model/EpubFootnote$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/asadullah012/foliate/model/EpubFootnote;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/asadullah012/foliate/model/EpubFootnote;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubFootnote$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubProgress {
+	public static final field $stable I
+	public static final field Companion Lio/github/asadullah012/foliate/model/EpubProgress$Companion;
+	public fun <init> ()V
+	public fun <init> (FLjava/lang/String;)V
+	public synthetic fun <init> (FLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()F
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (FLjava/lang/String;)Lio/github/asadullah012/foliate/model/EpubProgress;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubProgress;FLjava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubProgress;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public final fun getFraction ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class io/github/asadullah012/foliate/model/EpubProgress$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/model/EpubProgress$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/asadullah012/foliate/model/EpubProgress;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/asadullah012/foliate/model/EpubProgress;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubProgress$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubReaderConfig {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (ILio/github/asadullah012/foliate/model/EpubReaderTheme;Lio/github/asadullah012/foliate/model/EpubReaderFlow;Ljava/lang/String;FILjava/lang/String;)V
+	public synthetic fun <init> (ILio/github/asadullah012/foliate/model/EpubReaderTheme;Lio/github/asadullah012/foliate/model/EpubReaderFlow;Ljava/lang/String;FILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public final fun component3 ()Lio/github/asadullah012/foliate/model/EpubReaderFlow;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()F
+	public final fun component6 ()I
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (ILio/github/asadullah012/foliate/model/EpubReaderTheme;Lio/github/asadullah012/foliate/model/EpubReaderFlow;Ljava/lang/String;FILjava/lang/String;)Lio/github/asadullah012/foliate/model/EpubReaderConfig;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubReaderConfig;ILio/github/asadullah012/foliate/model/EpubReaderTheme;Lio/github/asadullah012/foliate/model/EpubReaderFlow;Ljava/lang/String;FILjava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubReaderConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFlow ()Lio/github/asadullah012/foliate/model/EpubReaderFlow;
+	public final fun getFontFamily ()Ljava/lang/String;
+	public final fun getFontSize ()I
+	public final fun getLineHeight ()F
+	public final fun getMargin ()I
+	public final fun getTextAlign ()Ljava/lang/String;
+	public final fun getTheme ()Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubReaderFlow : java/lang/Enum {
+	public static final field PAGINATED Lio/github/asadullah012/foliate/model/EpubReaderFlow;
+	public static final field SCROLLED Lio/github/asadullah012/foliate/model/EpubReaderFlow;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/asadullah012/foliate/model/EpubReaderFlow;
+	public static fun values ()[Lio/github/asadullah012/foliate/model/EpubReaderFlow;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubReaderLocation {
+	public static final field $stable I
+	public static final field Companion Lio/github/asadullah012/foliate/model/EpubReaderLocation$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;FLjava/lang/String;II)V
+	public synthetic fun <init> (Ljava/lang/String;FLjava/lang/String;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()F
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun copy (Ljava/lang/String;FLjava/lang/String;II)Lio/github/asadullah012/foliate/model/EpubReaderLocation;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubReaderLocation;Ljava/lang/String;FLjava/lang/String;IIILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubReaderLocation;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public final fun getChapterTitle ()Ljava/lang/String;
+	public final fun getProgressFraction ()F
+	public final fun getSectionIndex ()I
+	public final fun getTotalSections ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class io/github/asadullah012/foliate/model/EpubReaderLocation$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/model/EpubReaderLocation$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/asadullah012/foliate/model/EpubReaderLocation;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/asadullah012/foliate/model/EpubReaderLocation;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubReaderLocation$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubReaderSheet : java/lang/Enum {
+	public static final field APPEARANCE Lio/github/asadullah012/foliate/model/EpubReaderSheet;
+	public static final field SEARCH Lio/github/asadullah012/foliate/model/EpubReaderSheet;
+	public static final field TOC Lio/github/asadullah012/foliate/model/EpubReaderSheet;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/asadullah012/foliate/model/EpubReaderSheet;
+	public static fun values ()[Lio/github/asadullah012/foliate/model/EpubReaderSheet;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubReaderTheme : java/lang/Enum {
+	public static final field AMOLED Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public static final field DARK Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public static final field LIGHT Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public static final field SEPIA Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public static final field SLATE Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public final fun getBackgroundColor ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getTextColor ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public static fun values ()[Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubSearchResult {
+	public static final field $stable I
+	public static final field Companion Lio/github/asadullah012/foliate/model/EpubSearchResult$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/asadullah012/foliate/model/EpubSearchResult;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubSearchResult;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubSearchResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public final fun getChapterTitle ()Ljava/lang/String;
+	public final fun getExcerpt ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class io/github/asadullah012/foliate/model/EpubSearchResult$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/model/EpubSearchResult$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/asadullah012/foliate/model/EpubSearchResult;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/asadullah012/foliate/model/EpubSearchResult;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubSearchResult$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubTextSelection {
+	public static final field $stable I
+	public static final field Companion Lio/github/asadullah012/foliate/model/EpubTextSelection$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;I)Lio/github/asadullah012/foliate/model/EpubTextSelection;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubTextSelection;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubTextSelection;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public final fun getSectionIndex ()I
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class io/github/asadullah012/foliate/model/EpubTextSelection$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/model/EpubTextSelection$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/asadullah012/foliate/model/EpubTextSelection;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/asadullah012/foliate/model/EpubTextSelection;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubTextSelection$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubTocItem {
+	public static final field $stable I
+	public static final field Companion Lio/github/asadullah012/foliate/model/EpubTocItem$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lio/github/asadullah012/foliate/model/EpubTocItem;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/model/EpubTocItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lio/github/asadullah012/foliate/model/EpubTocItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHref ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getSubitems ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class io/github/asadullah012/foliate/model/EpubTocItem$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/model/EpubTocItem$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/asadullah012/foliate/model/EpubTocItem;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/asadullah012/foliate/model/EpubTocItem;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/model/EpubTocItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/asadullah012/foliate/ui/EpubReaderKt {
+	public static final fun EpubReader (Ljava/lang/String;Lio/github/asadullah012/foliate/EpubReaderController;Lio/github/asadullah012/foliate/model/EpubReaderConfig;Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/asadullah012/foliate/ui/FoliateReaderViewKt {
+	public static final fun FoliateReaderView (Ljava/lang/String;Lio/github/asadullah012/foliate/EpubReaderController;Lio/github/asadullah012/foliate/model/EpubReaderConfig;Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+

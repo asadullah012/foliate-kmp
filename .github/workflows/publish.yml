@@ -10,9 +10,13 @@ on:
         required: false
         type: string
 
+permissions:
+  contents: read
+
 jobs:
   publish:
     runs-on: macos-14
+    environment: maven-central
     steps:
       - uses: actions/checkout@v4
 
@@ -23,10 +27,18 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Run tests and the ABI check
+        run: ./gradlew check
 
       - name: Publish to Maven Central
         run: |
+          set -euo pipefail
+          if [ -z "${ORG_GRADLE_PROJECT_signingInMemoryKey:-}" ]; then
+            echo "::error::SIGNING_IN_MEMORY_KEY is empty. Maven Central rejects an unsigned upload."
+            exit 1
+          fi
           VERSION_ARG=""
           if [ -n "${{ inputs.version }}" ]; then
             VERSION_ARG="-PVERSION_NAME=${{ inputs.version }}"

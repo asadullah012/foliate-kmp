@@ -1,0 +1,630 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.asadullah012:foliate-kmp-compose>
+sealed interface io.github.asadullah012.foliate.compose.presentation/ReaderEffect { // io.github.asadullah012.foliate.compose.presentation/ReaderEffect|null[0]
+    final class ApplyWindowBrightness : io.github.asadullah012.foliate.compose.presentation/ReaderEffect { // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness|null[0]
+        constructor <init>(kotlin/Float) // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness.<init>|<init>(kotlin.Float){}[0]
+
+        final val brightness // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness.brightness|{}brightness[0]
+            final fun <get-brightness>(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness.brightness.<get-brightness>|<get-brightness>(){}[0]
+
+        final fun component1(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness.component1|component1(){}[0]
+        final fun copy(kotlin/Float = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness.copy|copy(kotlin.Float){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ApplyWindowBrightness.toString|toString(){}[0]
+    }
+
+    final class OpenExternalReader : io.github.asadullah012.foliate.compose.presentation/ReaderEffect { // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader|null[0]
+        constructor <init>(kotlin/String) // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader.<init>|<init>(kotlin.String){}[0]
+
+        final val filePath // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader.filePath|{}filePath[0]
+            final fun <get-filePath>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader.filePath.<get-filePath>|<get-filePath>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OpenExternalReader.toString|toString(){}[0]
+    }
+
+    final class ShowMessage : io.github.asadullah012.foliate.compose.presentation/ReaderEffect { // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage|null[0]
+        constructor <init>(kotlin/String) // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage.<init>|<init>(kotlin.String){}[0]
+
+        final val message // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage.message|{}message[0]
+            final fun <get-message>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage.message.<get-message>|<get-message>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.ShowMessage.toString|toString(){}[0]
+    }
+
+    final object OnNavigateBack : io.github.asadullah012.foliate.compose.presentation/ReaderEffect { // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OnNavigateBack|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OnNavigateBack.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OnNavigateBack.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEffect.OnNavigateBack.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent|null[0]
+    final class AddHighlight : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight|null[0]
+        constructor <init>(kotlin/String, kotlin/String? = ...) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.<init>|<init>(kotlin.String;kotlin.String?){}[0]
+
+        final val color // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.color|{}color[0]
+            final fun <get-color>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.color.<get-color>|<get-color>(){}[0]
+        final val note // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.note|{}note[0]
+            final fun <get-note>(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.note.<get-note>|<get-note>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.component1|component1(){}[0]
+        final fun component2(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.component2|component2(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String? = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.copy|copy(kotlin.String;kotlin.String?){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AddHighlight.toString|toString(){}[0]
+    }
+
+    final class AdjustBrightness : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness|null[0]
+        constructor <init>(kotlin/Float) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness.<init>|<init>(kotlin.Float){}[0]
+
+        final val delta // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness.delta|{}delta[0]
+            final fun <get-delta>(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness.delta.<get-delta>|<get-delta>(){}[0]
+
+        final fun component1(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness.component1|component1(){}[0]
+        final fun copy(kotlin/Float = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness.copy|copy(kotlin.Float){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.AdjustBrightness.toString|toString(){}[0]
+    }
+
+    final class ChangeFlow : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow|null[0]
+        constructor <init>(io.github.asadullah012.foliate.model/EpubReaderFlow) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow.<init>|<init>(io.github.asadullah012.foliate.model.EpubReaderFlow){}[0]
+
+        final val flow // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow.flow|{}flow[0]
+            final fun <get-flow>(): io.github.asadullah012.foliate.model/EpubReaderFlow // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow.flow.<get-flow>|<get-flow>(){}[0]
+
+        final fun component1(): io.github.asadullah012.foliate.model/EpubReaderFlow // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow.component1|component1(){}[0]
+        final fun copy(io.github.asadullah012.foliate.model/EpubReaderFlow = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow.copy|copy(io.github.asadullah012.foliate.model.EpubReaderFlow){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFlow.toString|toString(){}[0]
+    }
+
+    final class ChangeFontFamily : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily|null[0]
+        constructor <init>(kotlin/String) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily.<init>|<init>(kotlin.String){}[0]
+
+        final val family // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily.family|{}family[0]
+            final fun <get-family>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily.family.<get-family>|<get-family>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontFamily.toString|toString(){}[0]
+    }
+
+    final class ChangeFontSize : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize|null[0]
+        constructor <init>(kotlin/Int) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize.<init>|<init>(kotlin.Int){}[0]
+
+        final val delta // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize.delta|{}delta[0]
+            final fun <get-delta>(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize.delta.<get-delta>|<get-delta>(){}[0]
+
+        final fun component1(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize.component1|component1(){}[0]
+        final fun copy(kotlin/Int = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize.copy|copy(kotlin.Int){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeFontSize.toString|toString(){}[0]
+    }
+
+    final class ChangeLineHeight : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight|null[0]
+        constructor <init>(kotlin/Float) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight.<init>|<init>(kotlin.Float){}[0]
+
+        final val lineHeight // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight.lineHeight|{}lineHeight[0]
+            final fun <get-lineHeight>(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight.lineHeight.<get-lineHeight>|<get-lineHeight>(){}[0]
+
+        final fun component1(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight.component1|component1(){}[0]
+        final fun copy(kotlin/Float = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight.copy|copy(kotlin.Float){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeLineHeight.toString|toString(){}[0]
+    }
+
+    final class ChangeMargin : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin|null[0]
+        constructor <init>(kotlin/Int) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin.<init>|<init>(kotlin.Int){}[0]
+
+        final val margin // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin.margin|{}margin[0]
+            final fun <get-margin>(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin.margin.<get-margin>|<get-margin>(){}[0]
+
+        final fun component1(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin.component1|component1(){}[0]
+        final fun copy(kotlin/Int = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin.copy|copy(kotlin.Int){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeMargin.toString|toString(){}[0]
+    }
+
+    final class ChangeTextAlign : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign|null[0]
+        constructor <init>(kotlin/String) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign.<init>|<init>(kotlin.String){}[0]
+
+        final val align // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign.align|{}align[0]
+            final fun <get-align>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign.align.<get-align>|<get-align>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTextAlign.toString|toString(){}[0]
+    }
+
+    final class ChangeTheme : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme|null[0]
+        constructor <init>(io.github.asadullah012.foliate.model/EpubReaderTheme) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme.<init>|<init>(io.github.asadullah012.foliate.model.EpubReaderTheme){}[0]
+
+        final val theme // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme.theme|{}theme[0]
+            final fun <get-theme>(): io.github.asadullah012.foliate.model/EpubReaderTheme // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme.theme.<get-theme>|<get-theme>(){}[0]
+
+        final fun component1(): io.github.asadullah012.foliate.model/EpubReaderTheme // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme.component1|component1(){}[0]
+        final fun copy(io.github.asadullah012.foliate.model/EpubReaderTheme = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme.copy|copy(io.github.asadullah012.foliate.model.EpubReaderTheme){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ChangeTheme.toString|toString(){}[0]
+    }
+
+    final class DeleteBookmark : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark|null[0]
+        constructor <init>(kotlin/String) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark.<init>|<init>(kotlin.String){}[0]
+
+        final val cfi // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark.cfi|{}cfi[0]
+            final fun <get-cfi>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark.cfi.<get-cfi>|<get-cfi>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteBookmark.toString|toString(){}[0]
+    }
+
+    final class DeleteHighlight : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight|null[0]
+        constructor <init>(kotlin/String) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight.<init>|<init>(kotlin.String){}[0]
+
+        final val cfi // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight.cfi|{}cfi[0]
+            final fun <get-cfi>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight.cfi.<get-cfi>|<get-cfi>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DeleteHighlight.toString|toString(){}[0]
+    }
+
+    final class Init : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init|null[0]
+        constructor <init>(kotlin/String, kotlin/String, kotlin/String = ..., kotlin/String? = ..., kotlin/Float = ...) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String?;kotlin.Float){}[0]
+
+        final val bookId // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.bookId|{}bookId[0]
+            final fun <get-bookId>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.bookId.<get-bookId>|<get-bookId>(){}[0]
+        final val bookTitle // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.bookTitle|{}bookTitle[0]
+            final fun <get-bookTitle>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.bookTitle.<get-bookTitle>|<get-bookTitle>(){}[0]
+        final val filePath // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.filePath|{}filePath[0]
+            final fun <get-filePath>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.filePath.<get-filePath>|<get-filePath>(){}[0]
+        final val initialCfi // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.initialCfi|{}initialCfi[0]
+            final fun <get-initialCfi>(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.initialCfi.<get-initialCfi>|<get-initialCfi>(){}[0]
+        final val initialProgress // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.initialProgress|{}initialProgress[0]
+            final fun <get-initialProgress>(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.initialProgress.<get-initialProgress>|<get-initialProgress>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.component1|component1(){}[0]
+        final fun component2(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.component2|component2(){}[0]
+        final fun component3(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.component3|component3(){}[0]
+        final fun component4(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.component4|component4(){}[0]
+        final fun component5(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.component5|component5(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String? = ..., kotlin/Float = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String?;kotlin.Float){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.Init.toString|toString(){}[0]
+    }
+
+    final class LocationUpdated : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated|null[0]
+        constructor <init>(kotlin/String, kotlin/Float, kotlin/String?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.<init>|<init>(kotlin.String;kotlin.Float;kotlin.String?;kotlin.Int;kotlin.Int){}[0]
+
+        final val cfi // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.cfi|{}cfi[0]
+            final fun <get-cfi>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.cfi.<get-cfi>|<get-cfi>(){}[0]
+        final val chapterTitle // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.chapterTitle|{}chapterTitle[0]
+            final fun <get-chapterTitle>(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.chapterTitle.<get-chapterTitle>|<get-chapterTitle>(){}[0]
+        final val fraction // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.fraction|{}fraction[0]
+            final fun <get-fraction>(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.fraction.<get-fraction>|<get-fraction>(){}[0]
+        final val sectionIndex // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.sectionIndex|{}sectionIndex[0]
+            final fun <get-sectionIndex>(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.sectionIndex.<get-sectionIndex>|<get-sectionIndex>(){}[0]
+        final val totalSections // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.totalSections|{}totalSections[0]
+            final fun <get-totalSections>(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.totalSections.<get-totalSections>|<get-totalSections>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.component1|component1(){}[0]
+        final fun component2(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.component2|component2(){}[0]
+        final fun component3(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.component3|component3(){}[0]
+        final fun component4(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.component4|component4(){}[0]
+        final fun component5(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.component5|component5(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/Float = ..., kotlin/String? = ..., kotlin/Int = ..., kotlin/Int = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.copy|copy(kotlin.String;kotlin.Float;kotlin.String?;kotlin.Int;kotlin.Int){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.LocationUpdated.toString|toString(){}[0]
+    }
+
+    final class OnAnnotationClicked : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked|null[0]
+        constructor <init>(kotlin/String) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked.<init>|<init>(kotlin.String){}[0]
+
+        final val cfi // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked.cfi|{}cfi[0]
+            final fun <get-cfi>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked.cfi.<get-cfi>|<get-cfi>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnAnnotationClicked.toString|toString(){}[0]
+    }
+
+    final class OnError : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError|null[0]
+        constructor <init>(kotlin/String) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError.<init>|<init>(kotlin.String){}[0]
+
+        final val message // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError.message|{}message[0]
+            final fun <get-message>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError.message.<get-message>|<get-message>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnError.toString|toString(){}[0]
+    }
+
+    final class OpenSheet : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet|null[0]
+        constructor <init>(io.github.asadullah012.foliate.model/EpubReaderSheet) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet.<init>|<init>(io.github.asadullah012.foliate.model.EpubReaderSheet){}[0]
+
+        final val sheet // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet.sheet|{}sheet[0]
+            final fun <get-sheet>(): io.github.asadullah012.foliate.model/EpubReaderSheet // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet.sheet.<get-sheet>|<get-sheet>(){}[0]
+
+        final fun component1(): io.github.asadullah012.foliate.model/EpubReaderSheet // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet.component1|component1(){}[0]
+        final fun copy(io.github.asadullah012.foliate.model/EpubReaderSheet = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet.copy|copy(io.github.asadullah012.foliate.model.EpubReaderSheet){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OpenSheet.toString|toString(){}[0]
+    }
+
+    final class SearchQueryChanged : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged|null[0]
+        constructor <init>(kotlin/String) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged.<init>|<init>(kotlin.String){}[0]
+
+        final val query // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged.query|{}query[0]
+            final fun <get-query>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged.query.<get-query>|<get-query>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchQueryChanged.toString|toString(){}[0]
+    }
+
+    final class SearchResultsLoaded : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded|null[0]
+        constructor <init>(kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult>) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded.<init>|<init>(kotlin.collections.List<io.github.asadullah012.foliate.model.EpubSearchResult>){}[0]
+
+        final val results // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded.results|{}results[0]
+            final fun <get-results>(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult> // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded.results.<get-results>|<get-results>(){}[0]
+
+        final fun component1(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult> // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded.component1|component1(){}[0]
+        final fun copy(kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult> = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded.copy|copy(kotlin.collections.List<io.github.asadullah012.foliate.model.EpubSearchResult>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SearchResultsLoaded.toString|toString(){}[0]
+    }
+
+    final class SetFontSize : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize|null[0]
+        constructor <init>(kotlin/Int) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize.<init>|<init>(kotlin.Int){}[0]
+
+        final val sizePx // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize.sizePx|{}sizePx[0]
+            final fun <get-sizePx>(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize.sizePx.<get-sizePx>|<get-sizePx>(){}[0]
+
+        final fun component1(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize.component1|component1(){}[0]
+        final fun copy(kotlin/Int = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize.copy|copy(kotlin.Int){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.SetFontSize.toString|toString(){}[0]
+    }
+
+    final class ShowFootnote : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote|null[0]
+        constructor <init>(io.github.asadullah012.foliate.model/EpubFootnote) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote.<init>|<init>(io.github.asadullah012.foliate.model.EpubFootnote){}[0]
+
+        final val footnote // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote.footnote|{}footnote[0]
+            final fun <get-footnote>(): io.github.asadullah012.foliate.model/EpubFootnote // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote.footnote.<get-footnote>|<get-footnote>(){}[0]
+
+        final fun component1(): io.github.asadullah012.foliate.model/EpubFootnote // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote.component1|component1(){}[0]
+        final fun copy(io.github.asadullah012.foliate.model/EpubFootnote = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote.copy|copy(io.github.asadullah012.foliate.model.EpubFootnote){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ShowFootnote.toString|toString(){}[0]
+    }
+
+    final class TextSelectionChanged : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged|null[0]
+        constructor <init>(io.github.asadullah012.foliate.model/EpubTextSelection?) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged.<init>|<init>(io.github.asadullah012.foliate.model.EpubTextSelection?){}[0]
+
+        final val selection // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged.selection|{}selection[0]
+            final fun <get-selection>(): io.github.asadullah012.foliate.model/EpubTextSelection? // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged.selection.<get-selection>|<get-selection>(){}[0]
+
+        final fun component1(): io.github.asadullah012.foliate.model/EpubTextSelection? // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged.component1|component1(){}[0]
+        final fun copy(io.github.asadullah012.foliate.model/EpubTextSelection? = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged.copy|copy(io.github.asadullah012.foliate.model.EpubTextSelection?){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TextSelectionChanged.toString|toString(){}[0]
+    }
+
+    final class TocLoaded : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded|null[0]
+        constructor <init>(kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem>) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded.<init>|<init>(kotlin.collections.List<io.github.asadullah012.foliate.model.EpubTocItem>){}[0]
+
+        final val items // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded.items|{}items[0]
+            final fun <get-items>(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded.items.<get-items>|<get-items>(){}[0]
+
+        final fun component1(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded.component1|component1(){}[0]
+        final fun copy(kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded.copy|copy(kotlin.collections.List<io.github.asadullah012.foliate.model.EpubTocItem>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.TocLoaded.toString|toString(){}[0]
+    }
+
+    final class UpdateProgress : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress|null[0]
+        constructor <init>(kotlin/Float) // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress.<init>|<init>(kotlin.Float){}[0]
+
+        final val progress // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress.progress|{}progress[0]
+            final fun <get-progress>(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress.progress.<get-progress>|<get-progress>(){}[0]
+
+        final fun component1(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress.component1|component1(){}[0]
+        final fun copy(kotlin/Float = ...): io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress.copy|copy(kotlin.Float){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.UpdateProgress.toString|toString(){}[0]
+    }
+
+    final object ClearSelection : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ClearSelection|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ClearSelection.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ClearSelection.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ClearSelection.toString|toString(){}[0]
+    }
+
+    final object CloseSheet : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.CloseSheet|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.CloseSheet.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.CloseSheet.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.CloseSheet.toString|toString(){}[0]
+    }
+
+    final object DismissAnnotationDetail : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DismissAnnotationDetail|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DismissAnnotationDetail.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DismissAnnotationDetail.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DismissAnnotationDetail.toString|toString(){}[0]
+    }
+
+    final object DismissFootnote : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DismissFootnote|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DismissFootnote.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DismissFootnote.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.DismissFootnote.toString|toString(){}[0]
+    }
+
+    final object EndBrightness : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.EndBrightness|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.EndBrightness.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.EndBrightness.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.EndBrightness.toString|toString(){}[0]
+    }
+
+    final object OnNavigateBack : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnNavigateBack|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnNavigateBack.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnNavigateBack.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.OnNavigateBack.toString|toString(){}[0]
+    }
+
+    final object ResetAppearance : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ResetAppearance|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ResetAppearance.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ResetAppearance.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ResetAppearance.toString|toString(){}[0]
+    }
+
+    final object ToggleBookmark : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ToggleBookmark|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ToggleBookmark.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ToggleBookmark.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ToggleBookmark.toString|toString(){}[0]
+    }
+
+    final object ToggleControls : io.github.asadullah012.foliate.compose.presentation/ReaderEvent { // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ToggleControls|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ToggleControls.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ToggleControls.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderEvent.ToggleControls.toString|toString(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate.compose.presentation/ReaderState { // io.github.asadullah012.foliate.compose.presentation/ReaderState|null[0]
+    constructor <init>(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/String? = ..., kotlin/Boolean = ..., io.github.asadullah012.foliate.model/EpubReaderConfig = ..., io.github.asadullah012.foliate.model/EpubReaderSheet? = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult> = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubBookmark> = ..., kotlin/Boolean = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Float = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> = ..., kotlin/Float = ..., kotlin/Boolean = ..., io.github.asadullah012.foliate.model/EpubTextSelection? = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubAnnotation> = ..., io.github.asadullah012.foliate.model/EpubFootnote? = ..., io.github.asadullah012.foliate.model/EpubAnnotation? = ...) // io.github.asadullah012.foliate.compose.presentation/ReaderState.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.Boolean;kotlin.String?;kotlin.Boolean;io.github.asadullah012.foliate.model.EpubReaderConfig;io.github.asadullah012.foliate.model.EpubReaderSheet?;kotlin.String;kotlin.Boolean;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubSearchResult>;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubBookmark>;kotlin.Boolean;kotlin.String?;kotlin.String?;kotlin.Int;kotlin.Int;kotlin.Float;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubTocItem>;kotlin.Float;kotlin.Boolean;io.github.asadullah012.foliate.model.EpubTextSelection?;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubAnnotation>;io.github.asadullah012.foliate.model.EpubFootnote?;io.github.asadullah012.foliate.model.EpubAnnotation?){}[0]
+
+    final val activeFootnote // io.github.asadullah012.foliate.compose.presentation/ReaderState.activeFootnote|{}activeFootnote[0]
+        final fun <get-activeFootnote>(): io.github.asadullah012.foliate.model/EpubFootnote? // io.github.asadullah012.foliate.compose.presentation/ReaderState.activeFootnote.<get-activeFootnote>|<get-activeFootnote>(){}[0]
+    final val activeSheet // io.github.asadullah012.foliate.compose.presentation/ReaderState.activeSheet|{}activeSheet[0]
+        final fun <get-activeSheet>(): io.github.asadullah012.foliate.model/EpubReaderSheet? // io.github.asadullah012.foliate.compose.presentation/ReaderState.activeSheet.<get-activeSheet>|<get-activeSheet>(){}[0]
+    final val annotations // io.github.asadullah012.foliate.compose.presentation/ReaderState.annotations|{}annotations[0]
+        final fun <get-annotations>(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubAnnotation> // io.github.asadullah012.foliate.compose.presentation/ReaderState.annotations.<get-annotations>|<get-annotations>(){}[0]
+    final val bookId // io.github.asadullah012.foliate.compose.presentation/ReaderState.bookId|{}bookId[0]
+        final fun <get-bookId>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderState.bookId.<get-bookId>|<get-bookId>(){}[0]
+    final val bookTitle // io.github.asadullah012.foliate.compose.presentation/ReaderState.bookTitle|{}bookTitle[0]
+        final fun <get-bookTitle>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderState.bookTitle.<get-bookTitle>|<get-bookTitle>(){}[0]
+    final val bookmarks // io.github.asadullah012.foliate.compose.presentation/ReaderState.bookmarks|{}bookmarks[0]
+        final fun <get-bookmarks>(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubBookmark> // io.github.asadullah012.foliate.compose.presentation/ReaderState.bookmarks.<get-bookmarks>|<get-bookmarks>(){}[0]
+    final val brightness // io.github.asadullah012.foliate.compose.presentation/ReaderState.brightness|{}brightness[0]
+        final fun <get-brightness>(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderState.brightness.<get-brightness>|<get-brightness>(){}[0]
+    final val currentCfi // io.github.asadullah012.foliate.compose.presentation/ReaderState.currentCfi|{}currentCfi[0]
+        final fun <get-currentCfi>(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderState.currentCfi.<get-currentCfi>|<get-currentCfi>(){}[0]
+    final val currentChapterTitle // io.github.asadullah012.foliate.compose.presentation/ReaderState.currentChapterTitle|{}currentChapterTitle[0]
+        final fun <get-currentChapterTitle>(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderState.currentChapterTitle.<get-currentChapterTitle>|<get-currentChapterTitle>(){}[0]
+    final val currentSectionIndex // io.github.asadullah012.foliate.compose.presentation/ReaderState.currentSectionIndex|{}currentSectionIndex[0]
+        final fun <get-currentSectionIndex>(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderState.currentSectionIndex.<get-currentSectionIndex>|<get-currentSectionIndex>(){}[0]
+    final val errorMessage // io.github.asadullah012.foliate.compose.presentation/ReaderState.errorMessage|{}errorMessage[0]
+        final fun <get-errorMessage>(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderState.errorMessage.<get-errorMessage>|<get-errorMessage>(){}[0]
+    final val filePath // io.github.asadullah012.foliate.compose.presentation/ReaderState.filePath|{}filePath[0]
+        final fun <get-filePath>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderState.filePath.<get-filePath>|<get-filePath>(){}[0]
+    final val isBookmarked // io.github.asadullah012.foliate.compose.presentation/ReaderState.isBookmarked|{}isBookmarked[0]
+        final fun <get-isBookmarked>(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.isBookmarked.<get-isBookmarked>|<get-isBookmarked>(){}[0]
+    final val isBrightnessOverlayVisible // io.github.asadullah012.foliate.compose.presentation/ReaderState.isBrightnessOverlayVisible|{}isBrightnessOverlayVisible[0]
+        final fun <get-isBrightnessOverlayVisible>(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.isBrightnessOverlayVisible.<get-isBrightnessOverlayVisible>|<get-isBrightnessOverlayVisible>(){}[0]
+    final val isControlsVisible // io.github.asadullah012.foliate.compose.presentation/ReaderState.isControlsVisible|{}isControlsVisible[0]
+        final fun <get-isControlsVisible>(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.isControlsVisible.<get-isControlsVisible>|<get-isControlsVisible>(){}[0]
+    final val isLoading // io.github.asadullah012.foliate.compose.presentation/ReaderState.isLoading|{}isLoading[0]
+        final fun <get-isLoading>(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.isLoading.<get-isLoading>|<get-isLoading>(){}[0]
+    final val isSearching // io.github.asadullah012.foliate.compose.presentation/ReaderState.isSearching|{}isSearching[0]
+        final fun <get-isSearching>(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.isSearching.<get-isSearching>|<get-isSearching>(){}[0]
+    final val progressFraction // io.github.asadullah012.foliate.compose.presentation/ReaderState.progressFraction|{}progressFraction[0]
+        final fun <get-progressFraction>(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderState.progressFraction.<get-progressFraction>|<get-progressFraction>(){}[0]
+    final val readerConfig // io.github.asadullah012.foliate.compose.presentation/ReaderState.readerConfig|{}readerConfig[0]
+        final fun <get-readerConfig>(): io.github.asadullah012.foliate.model/EpubReaderConfig // io.github.asadullah012.foliate.compose.presentation/ReaderState.readerConfig.<get-readerConfig>|<get-readerConfig>(){}[0]
+    final val searchQuery // io.github.asadullah012.foliate.compose.presentation/ReaderState.searchQuery|{}searchQuery[0]
+        final fun <get-searchQuery>(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderState.searchQuery.<get-searchQuery>|<get-searchQuery>(){}[0]
+    final val searchResults // io.github.asadullah012.foliate.compose.presentation/ReaderState.searchResults|{}searchResults[0]
+        final fun <get-searchResults>(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult> // io.github.asadullah012.foliate.compose.presentation/ReaderState.searchResults.<get-searchResults>|<get-searchResults>(){}[0]
+    final val selectedAnnotation // io.github.asadullah012.foliate.compose.presentation/ReaderState.selectedAnnotation|{}selectedAnnotation[0]
+        final fun <get-selectedAnnotation>(): io.github.asadullah012.foliate.model/EpubAnnotation? // io.github.asadullah012.foliate.compose.presentation/ReaderState.selectedAnnotation.<get-selectedAnnotation>|<get-selectedAnnotation>(){}[0]
+    final val textSelection // io.github.asadullah012.foliate.compose.presentation/ReaderState.textSelection|{}textSelection[0]
+        final fun <get-textSelection>(): io.github.asadullah012.foliate.model/EpubTextSelection? // io.github.asadullah012.foliate.compose.presentation/ReaderState.textSelection.<get-textSelection>|<get-textSelection>(){}[0]
+    final val tocItems // io.github.asadullah012.foliate.compose.presentation/ReaderState.tocItems|{}tocItems[0]
+        final fun <get-tocItems>(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> // io.github.asadullah012.foliate.compose.presentation/ReaderState.tocItems.<get-tocItems>|<get-tocItems>(){}[0]
+    final val totalSections // io.github.asadullah012.foliate.compose.presentation/ReaderState.totalSections|{}totalSections[0]
+        final fun <get-totalSections>(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderState.totalSections.<get-totalSections>|<get-totalSections>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderState.component1|component1(){}[0]
+    final fun component10(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.component10|component10(){}[0]
+    final fun component11(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult> // io.github.asadullah012.foliate.compose.presentation/ReaderState.component11|component11(){}[0]
+    final fun component12(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubBookmark> // io.github.asadullah012.foliate.compose.presentation/ReaderState.component12|component12(){}[0]
+    final fun component13(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.component13|component13(){}[0]
+    final fun component14(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderState.component14|component14(){}[0]
+    final fun component15(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderState.component15|component15(){}[0]
+    final fun component16(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderState.component16|component16(){}[0]
+    final fun component17(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderState.component17|component17(){}[0]
+    final fun component18(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderState.component18|component18(){}[0]
+    final fun component19(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> // io.github.asadullah012.foliate.compose.presentation/ReaderState.component19|component19(){}[0]
+    final fun component2(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderState.component2|component2(){}[0]
+    final fun component20(): kotlin/Float // io.github.asadullah012.foliate.compose.presentation/ReaderState.component20|component20(){}[0]
+    final fun component21(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.component21|component21(){}[0]
+    final fun component22(): io.github.asadullah012.foliate.model/EpubTextSelection? // io.github.asadullah012.foliate.compose.presentation/ReaderState.component22|component22(){}[0]
+    final fun component23(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubAnnotation> // io.github.asadullah012.foliate.compose.presentation/ReaderState.component23|component23(){}[0]
+    final fun component24(): io.github.asadullah012.foliate.model/EpubFootnote? // io.github.asadullah012.foliate.compose.presentation/ReaderState.component24|component24(){}[0]
+    final fun component25(): io.github.asadullah012.foliate.model/EpubAnnotation? // io.github.asadullah012.foliate.compose.presentation/ReaderState.component25|component25(){}[0]
+    final fun component3(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderState.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.component4|component4(){}[0]
+    final fun component5(): kotlin/String? // io.github.asadullah012.foliate.compose.presentation/ReaderState.component5|component5(){}[0]
+    final fun component6(): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.component6|component6(){}[0]
+    final fun component7(): io.github.asadullah012.foliate.model/EpubReaderConfig // io.github.asadullah012.foliate.compose.presentation/ReaderState.component7|component7(){}[0]
+    final fun component8(): io.github.asadullah012.foliate.model/EpubReaderSheet? // io.github.asadullah012.foliate.compose.presentation/ReaderState.component8|component8(){}[0]
+    final fun component9(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderState.component9|component9(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/String? = ..., kotlin/Boolean = ..., io.github.asadullah012.foliate.model/EpubReaderConfig = ..., io.github.asadullah012.foliate.model/EpubReaderSheet? = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult> = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubBookmark> = ..., kotlin/Boolean = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/Int = ..., kotlin/Int = ..., kotlin/Float = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> = ..., kotlin/Float = ..., kotlin/Boolean = ..., io.github.asadullah012.foliate.model/EpubTextSelection? = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubAnnotation> = ..., io.github.asadullah012.foliate.model/EpubFootnote? = ..., io.github.asadullah012.foliate.model/EpubAnnotation? = ...): io.github.asadullah012.foliate.compose.presentation/ReaderState // io.github.asadullah012.foliate.compose.presentation/ReaderState.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.Boolean;kotlin.String?;kotlin.Boolean;io.github.asadullah012.foliate.model.EpubReaderConfig;io.github.asadullah012.foliate.model.EpubReaderSheet?;kotlin.String;kotlin.Boolean;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubSearchResult>;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubBookmark>;kotlin.Boolean;kotlin.String?;kotlin.String?;kotlin.Int;kotlin.Int;kotlin.Float;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubTocItem>;kotlin.Float;kotlin.Boolean;io.github.asadullah012.foliate.model.EpubTextSelection?;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubAnnotation>;io.github.asadullah012.foliate.model.EpubFootnote?;io.github.asadullah012.foliate.model.EpubAnnotation?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.compose.presentation/ReaderState.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/ReaderState.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.compose.presentation/ReaderState.toString|toString(){}[0]
+}
+
+open class io.github.asadullah012.foliate.compose.presentation/ReaderModel : androidx.lifecycle/ViewModel { // io.github.asadullah012.foliate.compose.presentation/ReaderModel|null[0]
+    constructor <init>(io.github.asadullah012.foliate.domain/EpubReaderStorage = ..., kotlin.time/Clock = ...) // io.github.asadullah012.foliate.compose.presentation/ReaderModel.<init>|<init>(io.github.asadullah012.foliate.domain.EpubReaderStorage;kotlin.time.Clock){}[0]
+
+    final val effects // io.github.asadullah012.foliate.compose.presentation/ReaderModel.effects|{}effects[0]
+        final fun <get-effects>(): kotlinx.coroutines.flow/Flow<io.github.asadullah012.foliate.compose.presentation/ReaderEffect> // io.github.asadullah012.foliate.compose.presentation/ReaderModel.effects.<get-effects>|<get-effects>(){}[0]
+    final val state // io.github.asadullah012.foliate.compose.presentation/ReaderModel.state|{}state[0]
+        final fun <get-state>(): kotlinx.coroutines.flow/StateFlow<io.github.asadullah012.foliate.compose.presentation/ReaderState> // io.github.asadullah012.foliate.compose.presentation/ReaderModel.state.<get-state>|<get-state>(){}[0]
+
+    final fun onEvent(io.github.asadullah012.foliate.compose.presentation/ReaderEvent) // io.github.asadullah012.foliate.compose.presentation/ReaderModel.onEvent|onEvent(io.github.asadullah012.foliate.compose.presentation.ReaderEvent){}[0]
+}
+
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ApplyWindowBrightness$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ApplyWindowBrightness$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ApplyWindowBrightness$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OnNavigateBack$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OnNavigateBack$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OnNavigateBack$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OpenExternalReader$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OpenExternalReader$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OpenExternalReader$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ShowMessage$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ShowMessage$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ShowMessage$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AddHighlight$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AddHighlight$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AddHighlight$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AdjustBrightness$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AdjustBrightness$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AdjustBrightness$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFlow$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFlow$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFlow$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontFamily$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontFamily$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontFamily$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontSize$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontSize$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontSize$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeLineHeight$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeLineHeight$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeLineHeight$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeMargin$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeMargin$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeMargin$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTextAlign$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTextAlign$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTextAlign$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTheme$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTheme$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTheme$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ClearSelection$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ClearSelection$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ClearSelection$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_CloseSheet$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_CloseSheet$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_CloseSheet$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteBookmark$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteBookmark$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteBookmark$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteHighlight$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteHighlight$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteHighlight$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissAnnotationDetail$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissAnnotationDetail$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissAnnotationDetail$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissFootnote$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissFootnote$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissFootnote$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_EndBrightness$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_EndBrightness$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_EndBrightness$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_Init$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_Init$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_Init$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_LocationUpdated$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_LocationUpdated$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_LocationUpdated$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnAnnotationClicked$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnAnnotationClicked$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnAnnotationClicked$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnError$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnError$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnError$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnNavigateBack$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnNavigateBack$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnNavigateBack$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OpenSheet$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OpenSheet$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OpenSheet$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ResetAppearance$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ResetAppearance$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ResetAppearance$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchQueryChanged$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchQueryChanged$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchQueryChanged$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchResultsLoaded$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchResultsLoaded$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchResultsLoaded$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SetFontSize$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SetFontSize$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SetFontSize$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ShowFootnote$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ShowFootnote$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ShowFootnote$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TextSelectionChanged$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TextSelectionChanged$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TextSelectionChanged$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TocLoaded$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TocLoaded$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TocLoaded$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleBookmark$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleBookmark$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleBookmark$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleControls$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleControls$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleControls$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_UpdateProgress$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_UpdateProgress$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderEvent_UpdateProgress$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderModel$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderModel$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderModel$stableprop[0]
+final val io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderState$stableprop // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderState$stableprop|#static{}io_github_asadullah012_foliate_compose_presentation_ReaderState$stableprop[0]
+final val io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_array$stableprop // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_array$stableprop|#static{}io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_array$stableprop[0]
+final val io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_drawable$stableprop // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_drawable$stableprop|#static{}io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_drawable$stableprop[0]
+final val io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_font$stableprop // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_font$stableprop|#static{}io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_font$stableprop[0]
+final val io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_plurals$stableprop // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_plurals$stableprop|#static{}io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_plurals$stableprop[0]
+final val io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_string$stableprop // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_string$stableprop|#static{}io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_string$stableprop[0]
+
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ApplyWindowBrightness$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ApplyWindowBrightness$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ApplyWindowBrightness$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OnNavigateBack$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OnNavigateBack$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OnNavigateBack$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OpenExternalReader$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OpenExternalReader$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEffect_OpenExternalReader$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ShowMessage$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ShowMessage$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEffect_ShowMessage$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AddHighlight$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AddHighlight$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AddHighlight$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AdjustBrightness$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AdjustBrightness$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_AdjustBrightness$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFlow$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFlow$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFlow$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontFamily$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontFamily$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontFamily$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontSize$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontSize$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeFontSize$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeLineHeight$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeLineHeight$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeLineHeight$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeMargin$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeMargin$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeMargin$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTextAlign$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTextAlign$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTextAlign$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTheme$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTheme$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ChangeTheme$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ClearSelection$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ClearSelection$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ClearSelection$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_CloseSheet$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_CloseSheet$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_CloseSheet$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteBookmark$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteBookmark$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteBookmark$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteHighlight$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteHighlight$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DeleteHighlight$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissAnnotationDetail$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissAnnotationDetail$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissAnnotationDetail$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissFootnote$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissFootnote$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_DismissFootnote$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_EndBrightness$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_EndBrightness$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_EndBrightness$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_Init$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_Init$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_Init$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_LocationUpdated$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_LocationUpdated$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_LocationUpdated$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnAnnotationClicked$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnAnnotationClicked$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnAnnotationClicked$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnError$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnError$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnError$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnNavigateBack$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnNavigateBack$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OnNavigateBack$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OpenSheet$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OpenSheet$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_OpenSheet$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ResetAppearance$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ResetAppearance$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ResetAppearance$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchQueryChanged$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchQueryChanged$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchQueryChanged$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchResultsLoaded$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchResultsLoaded$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SearchResultsLoaded$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SetFontSize$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SetFontSize$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_SetFontSize$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ShowFootnote$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ShowFootnote$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ShowFootnote$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TextSelectionChanged$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TextSelectionChanged$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TextSelectionChanged$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TocLoaded$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TocLoaded$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_TocLoaded$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleBookmark$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleBookmark$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleBookmark$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleControls$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleControls$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_ToggleControls$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_UpdateProgress$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderEvent_UpdateProgress$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderEvent_UpdateProgress$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderModel$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderModel$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderModel$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderState$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.compose.presentation/io_github_asadullah012_foliate_compose_presentation_ReaderState$stableprop_getter|io_github_asadullah012_foliate_compose_presentation_ReaderState$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.compose.ui.components/ReaderAnnotationDialog(io.github.asadullah012.foliate.model/EpubAnnotation, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function0<kotlin/Unit>, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui.components/ReaderAnnotationDialog|ReaderAnnotationDialog(io.github.asadullah012.foliate.model.EpubAnnotation;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function0<kotlin.Unit>;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.compose.ui.components/ReaderAppearanceSheet(io.github.asadullah012.foliate.model/EpubReaderConfig, kotlin/Function1<io.github.asadullah012.foliate.model/EpubReaderTheme, kotlin/Unit>, kotlin/Function1<io.github.asadullah012.foliate.model/EpubReaderFlow, kotlin/Unit>, kotlin/Function1<kotlin/Int, kotlin/Unit>, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function1<kotlin/Float, kotlin/Unit>, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function0<kotlin/Unit>, androidx.compose.ui/Modifier?, kotlin/Function1<kotlin/Int, kotlin/Unit>?, kotlin/Function0<kotlin/Unit>?, kotlin.collections/List<io.github.asadullah012.foliate.model/EpubFontOption>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui.components/ReaderAppearanceSheet|ReaderAppearanceSheet(io.github.asadullah012.foliate.model.EpubReaderConfig;kotlin.Function1<io.github.asadullah012.foliate.model.EpubReaderTheme,kotlin.Unit>;kotlin.Function1<io.github.asadullah012.foliate.model.EpubReaderFlow,kotlin.Unit>;kotlin.Function1<kotlin.Int,kotlin.Unit>;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function1<kotlin.Float,kotlin.Unit>;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function0<kotlin.Unit>;androidx.compose.ui.Modifier?;kotlin.Function1<kotlin.Int,kotlin.Unit>?;kotlin.Function0<kotlin.Unit>?;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubFontOption>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.compose.ui.components/ReaderBottomBar(kotlin/Float, kotlin/Int, kotlin/Int, kotlin/String?, kotlin/Function0<kotlin/Unit>, kotlin/Function0<kotlin/Unit>, kotlin/Function1<kotlin/Float, kotlin/Unit>, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui.components/ReaderBottomBar|ReaderBottomBar(kotlin.Float;kotlin.Int;kotlin.Int;kotlin.String?;kotlin.Function0<kotlin.Unit>;kotlin.Function0<kotlin.Unit>;kotlin.Function1<kotlin.Float,kotlin.Unit>;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.compose.ui.components/ReaderBrightnessHud(kotlin/Boolean, kotlin/Float, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui.components/ReaderBrightnessHud|ReaderBrightnessHud(kotlin.Boolean;kotlin.Float;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.compose.ui.components/ReaderFootnoteSheet(io.github.asadullah012.foliate.model/EpubFootnote, kotlin/Function0<kotlin/Unit>, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui.components/ReaderFootnoteSheet|ReaderFootnoteSheet(io.github.asadullah012.foliate.model.EpubFootnote;kotlin.Function0<kotlin.Unit>;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.compose.ui.components/ReaderSearchDialog(kotlin/String, kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult>, kotlin/Boolean, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function0<kotlin/Unit>, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function0<kotlin/Unit>, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui.components/ReaderSearchDialog|ReaderSearchDialog(kotlin.String;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubSearchResult>;kotlin.Boolean;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function0<kotlin.Unit>;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function0<kotlin.Unit>;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.compose.ui.components/ReaderSelectionToolbar(kotlin/Boolean, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function0<kotlin/Unit>, kotlin/Function0<kotlin/Unit>, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui.components/ReaderSelectionToolbar|ReaderSelectionToolbar(kotlin.Boolean;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function0<kotlin.Unit>;kotlin.Function0<kotlin.Unit>;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.compose.ui.components/ReaderTocDrawer(kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem>, kotlin.collections/List<io.github.asadullah012.foliate.model/EpubBookmark>, kotlin/String?, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function1<kotlin/String, kotlin/Unit>, kotlin/Function0<kotlin/Unit>, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui.components/ReaderTocDrawer|ReaderTocDrawer(kotlin.collections.List<io.github.asadullah012.foliate.model.EpubTocItem>;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubBookmark>;kotlin.String?;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function1<kotlin.String,kotlin.Unit>;kotlin.Function0<kotlin.Unit>;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.compose.ui.components/ReaderTopBar(kotlin/String, kotlin/String?, kotlin/Boolean, kotlin/Function0<kotlin/Unit>, kotlin/Function0<kotlin/Unit>, kotlin/Function0<kotlin/Unit>, kotlin/Function0<kotlin/Unit>, kotlin/Function0<kotlin/Unit>, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui.components/ReaderTopBar|ReaderTopBar(kotlin.String;kotlin.String?;kotlin.Boolean;kotlin.Function0<kotlin.Unit>;kotlin.Function0<kotlin.Unit>;kotlin.Function0<kotlin.Unit>;kotlin.Function0<kotlin.Unit>;kotlin.Function0<kotlin.Unit>;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.compose.ui/ReaderScreen(kotlin/String, kotlin/String?, kotlin/String?, kotlin/String?, kotlin/Float, io.github.asadullah012.foliate.compose.presentation/ReaderModel?, kotlin/Function0<kotlin/Unit>?, kotlin/Function1<kotlin/String, kotlin/Unit>?, kotlin/Function1<kotlin/Float, kotlin/Unit>?, kotlin/Function2<kotlin/Float, kotlin/String, kotlin/Unit>?, androidx.compose.ui/Modifier?, kotlin.collections/List<io.github.asadullah012.foliate.model/EpubFontOption>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.compose.ui/ReaderScreen|ReaderScreen(kotlin.String;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.Float;io.github.asadullah012.foliate.compose.presentation.ReaderModel?;kotlin.Function0<kotlin.Unit>?;kotlin.Function1<kotlin.String,kotlin.Unit>?;kotlin.Function1<kotlin.Float,kotlin.Unit>?;kotlin.Function2<kotlin.Float,kotlin.String,kotlin.Unit>?;androidx.compose.ui.Modifier?;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubFontOption>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_array$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_array$stableprop_getter|io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_array$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_drawable$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_drawable$stableprop_getter|io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_drawable$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_font$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_font$stableprop_getter|io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_font$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_plurals$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_plurals$stableprop_getter|io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_plurals$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_string$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate_kmp_compose.generated.resources/io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_string$stableprop_getter|io_github_asadullah012_foliate_kmp_compose_generated_resources_Res_string$stableprop_getter(){}[0]

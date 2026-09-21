@@ -9,13 +9,24 @@ plugins {
 }
 
 kotlin {
+    explicitApi()
+
+    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+    abiValidation()
+
     android {
-        namespace = "io.github.galib.foliate.compose"
+        namespace = "io.github.asadullah012.foliate.compose"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
         withHostTest {}
+
+        androidResources {
+            enable = true
+        }
     }
 
+    // Compose Multiplatform publishes no iosX64 artifacts, so an Intel simulator
+    // target is not possible. Apple silicon simulators use iosSimulatorArm64.
     iosArm64()
     iosSimulatorArm64()
 
@@ -29,7 +40,7 @@ kotlin {
             api(project(":foliate-kmp-core"))
 
             api(libs.compose.material3)
-            implementation(compose.materialIconsExtended)
+            implementation(libs.compose.material.icons.extended)
             implementation(libs.compose.components.resources)
             implementation(libs.lifecycle.viewmodel.compose)
             implementation(libs.lifecycle.runtime.compose)
@@ -49,33 +60,12 @@ kotlin {
 
 mavenPublishing {
     publishToMavenCentral(automaticRelease = true)
-    if (project.hasProperty("signing.keyId") || project.hasProperty("signing.gnupg.keyName")) {
+
+    if (
+        project.hasProperty("signingInMemoryKey") ||
+        project.hasProperty("signing.keyId") ||
+        project.hasProperty("signing.gnupg.keyName")
+    ) {
         signAllPublications()
-    }
-
-    coordinates(artifactId = "foliate-kmp-compose")
-
-    pom {
-        name.set("foliate-kmp-compose")
-        description.set("Turnkey Material 3 Compose Multiplatform reader UI for foliate-kmp.")
-        url.set(providers.gradleProperty("POM_URL"))
-        licenses {
-            license {
-                name.set(providers.gradleProperty("POM_LICENSE_NAME"))
-                url.set(providers.gradleProperty("POM_LICENSE_URL"))
-                distribution.set(providers.gradleProperty("POM_LICENSE_DIST"))
-            }
-        }
-        developers {
-            developer {
-                id.set(providers.gradleProperty("POM_DEVELOPER_ID"))
-                name.set(providers.gradleProperty("POM_DEVELOPER_NAME"))
-            }
-        }
-        scm {
-            url.set(providers.gradleProperty("POM_SCM_URL"))
-            connection.set(providers.gradleProperty("POM_SCM_CONNECTION"))
-            developerConnection.set(providers.gradleProperty("POM_SCM_DEV_CONNECTION"))
-        }
     }
 }

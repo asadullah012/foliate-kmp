@@ -1,0 +1,509 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.asadullah012:foliate-kmp-core>
+final enum class io.github.asadullah012.foliate.model/EpubReaderFlow : kotlin/Enum<io.github.asadullah012.foliate.model/EpubReaderFlow> { // io.github.asadullah012.foliate.model/EpubReaderFlow|null[0]
+    enum entry PAGINATED // io.github.asadullah012.foliate.model/EpubReaderFlow.PAGINATED|null[0]
+    enum entry SCROLLED // io.github.asadullah012.foliate.model/EpubReaderFlow.SCROLLED|null[0]
+
+    final val entries // io.github.asadullah012.foliate.model/EpubReaderFlow.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.asadullah012.foliate.model/EpubReaderFlow> // io.github.asadullah012.foliate.model/EpubReaderFlow.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.asadullah012.foliate.model/EpubReaderFlow // io.github.asadullah012.foliate.model/EpubReaderFlow.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.asadullah012.foliate.model/EpubReaderFlow> // io.github.asadullah012.foliate.model/EpubReaderFlow.values|values#static(){}[0]
+}
+
+final enum class io.github.asadullah012.foliate.model/EpubReaderSheet : kotlin/Enum<io.github.asadullah012.foliate.model/EpubReaderSheet> { // io.github.asadullah012.foliate.model/EpubReaderSheet|null[0]
+    enum entry APPEARANCE // io.github.asadullah012.foliate.model/EpubReaderSheet.APPEARANCE|null[0]
+    enum entry SEARCH // io.github.asadullah012.foliate.model/EpubReaderSheet.SEARCH|null[0]
+    enum entry TOC // io.github.asadullah012.foliate.model/EpubReaderSheet.TOC|null[0]
+
+    final val entries // io.github.asadullah012.foliate.model/EpubReaderSheet.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.asadullah012.foliate.model/EpubReaderSheet> // io.github.asadullah012.foliate.model/EpubReaderSheet.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.asadullah012.foliate.model/EpubReaderSheet // io.github.asadullah012.foliate.model/EpubReaderSheet.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.asadullah012.foliate.model/EpubReaderSheet> // io.github.asadullah012.foliate.model/EpubReaderSheet.values|values#static(){}[0]
+}
+
+final enum class io.github.asadullah012.foliate.model/EpubReaderTheme : kotlin/Enum<io.github.asadullah012.foliate.model/EpubReaderTheme> { // io.github.asadullah012.foliate.model/EpubReaderTheme|null[0]
+    enum entry AMOLED // io.github.asadullah012.foliate.model/EpubReaderTheme.AMOLED|null[0]
+    enum entry DARK // io.github.asadullah012.foliate.model/EpubReaderTheme.DARK|null[0]
+    enum entry LIGHT // io.github.asadullah012.foliate.model/EpubReaderTheme.LIGHT|null[0]
+    enum entry SEPIA // io.github.asadullah012.foliate.model/EpubReaderTheme.SEPIA|null[0]
+    enum entry SLATE // io.github.asadullah012.foliate.model/EpubReaderTheme.SLATE|null[0]
+
+    final val backgroundColor // io.github.asadullah012.foliate.model/EpubReaderTheme.backgroundColor|{}backgroundColor[0]
+        final fun <get-backgroundColor>(): kotlin/String // io.github.asadullah012.foliate.model/EpubReaderTheme.backgroundColor.<get-backgroundColor>|<get-backgroundColor>(){}[0]
+    final val displayName // io.github.asadullah012.foliate.model/EpubReaderTheme.displayName|{}displayName[0]
+        final fun <get-displayName>(): kotlin/String // io.github.asadullah012.foliate.model/EpubReaderTheme.displayName.<get-displayName>|<get-displayName>(){}[0]
+    final val entries // io.github.asadullah012.foliate.model/EpubReaderTheme.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.asadullah012.foliate.model/EpubReaderTheme> // io.github.asadullah012.foliate.model/EpubReaderTheme.entries.<get-entries>|<get-entries>#static(){}[0]
+    final val textColor // io.github.asadullah012.foliate.model/EpubReaderTheme.textColor|{}textColor[0]
+        final fun <get-textColor>(): kotlin/String // io.github.asadullah012.foliate.model/EpubReaderTheme.textColor.<get-textColor>|<get-textColor>(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.asadullah012.foliate.model/EpubReaderTheme // io.github.asadullah012.foliate.model/EpubReaderTheme.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.asadullah012.foliate.model/EpubReaderTheme> // io.github.asadullah012.foliate.model/EpubReaderTheme.values|values#static(){}[0]
+}
+
+abstract interface io.github.asadullah012.foliate.domain/EpubReaderStorage { // io.github.asadullah012.foliate.domain/EpubReaderStorage|null[0]
+    abstract suspend fun deleteAnnotation(kotlin/String, kotlin/String) // io.github.asadullah012.foliate.domain/EpubReaderStorage.deleteAnnotation|deleteAnnotation(kotlin.String;kotlin.String){}[0]
+    abstract suspend fun deleteBookmark(kotlin/String, kotlin/String) // io.github.asadullah012.foliate.domain/EpubReaderStorage.deleteBookmark|deleteBookmark(kotlin.String;kotlin.String){}[0]
+    abstract suspend fun getAnnotations(kotlin/String): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubAnnotation> // io.github.asadullah012.foliate.domain/EpubReaderStorage.getAnnotations|getAnnotations(kotlin.String){}[0]
+    abstract suspend fun getBookmarks(kotlin/String): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubBookmark> // io.github.asadullah012.foliate.domain/EpubReaderStorage.getBookmarks|getBookmarks(kotlin.String){}[0]
+    abstract suspend fun getProgress(kotlin/String): io.github.asadullah012.foliate.model/EpubProgress? // io.github.asadullah012.foliate.domain/EpubReaderStorage.getProgress|getProgress(kotlin.String){}[0]
+    abstract suspend fun saveAnnotation(kotlin/String, io.github.asadullah012.foliate.model/EpubAnnotation) // io.github.asadullah012.foliate.domain/EpubReaderStorage.saveAnnotation|saveAnnotation(kotlin.String;io.github.asadullah012.foliate.model.EpubAnnotation){}[0]
+    abstract suspend fun saveBookmark(kotlin/String, io.github.asadullah012.foliate.model/EpubBookmark) // io.github.asadullah012.foliate.domain/EpubReaderStorage.saveBookmark|saveBookmark(kotlin.String;io.github.asadullah012.foliate.model.EpubBookmark){}[0]
+    abstract suspend fun saveProgress(kotlin/String, io.github.asadullah012.foliate.model/EpubProgress) // io.github.asadullah012.foliate.domain/EpubReaderStorage.saveProgress|saveProgress(kotlin.String;io.github.asadullah012.foliate.model.EpubProgress){}[0]
+    open suspend fun saveProgress(kotlin/String, kotlin/Float, kotlin/String) // io.github.asadullah012.foliate.domain/EpubReaderStorage.saveProgress|saveProgress(kotlin.String;kotlin.Float;kotlin.String){}[0]
+}
+
+final class io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage : io.github.asadullah012.foliate.domain/EpubReaderStorage { // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage|null[0]
+    constructor <init>() // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.<init>|<init>(){}[0]
+
+    final suspend fun deleteAnnotation(kotlin/String, kotlin/String) // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.deleteAnnotation|deleteAnnotation(kotlin.String;kotlin.String){}[0]
+    final suspend fun deleteBookmark(kotlin/String, kotlin/String) // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.deleteBookmark|deleteBookmark(kotlin.String;kotlin.String){}[0]
+    final suspend fun getAnnotations(kotlin/String): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubAnnotation> // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.getAnnotations|getAnnotations(kotlin.String){}[0]
+    final suspend fun getBookmarks(kotlin/String): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubBookmark> // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.getBookmarks|getBookmarks(kotlin.String){}[0]
+    final suspend fun getProgress(kotlin/String): io.github.asadullah012.foliate.model/EpubProgress? // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.getProgress|getProgress(kotlin.String){}[0]
+    final suspend fun saveAnnotation(kotlin/String, io.github.asadullah012.foliate.model/EpubAnnotation) // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.saveAnnotation|saveAnnotation(kotlin.String;io.github.asadullah012.foliate.model.EpubAnnotation){}[0]
+    final suspend fun saveBookmark(kotlin/String, io.github.asadullah012.foliate.model/EpubBookmark) // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.saveBookmark|saveBookmark(kotlin.String;io.github.asadullah012.foliate.model.EpubBookmark){}[0]
+    final suspend fun saveProgress(kotlin/String, io.github.asadullah012.foliate.model/EpubProgress) // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.saveProgress|saveProgress(kotlin.String;io.github.asadullah012.foliate.model.EpubProgress){}[0]
+    final suspend fun saveProgress(kotlin/String, kotlin/Float, kotlin/String) // io.github.asadullah012.foliate.domain/InMemoryEpubReaderStorage.saveProgress|saveProgress(kotlin.String;kotlin.Float;kotlin.String){}[0]
+}
+
+final class io.github.asadullah012.foliate.model/EpubAnnotation { // io.github.asadullah012.foliate.model/EpubAnnotation|null[0]
+    constructor <init>(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String? = ..., kotlin/Long = ...) // io.github.asadullah012.foliate.model/EpubAnnotation.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String?;kotlin.Long){}[0]
+
+    final val cfi // io.github.asadullah012.foliate.model/EpubAnnotation.cfi|{}cfi[0]
+        final fun <get-cfi>(): kotlin/String // io.github.asadullah012.foliate.model/EpubAnnotation.cfi.<get-cfi>|<get-cfi>(){}[0]
+    final val color // io.github.asadullah012.foliate.model/EpubAnnotation.color|{}color[0]
+        final fun <get-color>(): kotlin/String // io.github.asadullah012.foliate.model/EpubAnnotation.color.<get-color>|<get-color>(){}[0]
+    final val id // io.github.asadullah012.foliate.model/EpubAnnotation.id|{}id[0]
+        final fun <get-id>(): kotlin/String // io.github.asadullah012.foliate.model/EpubAnnotation.id.<get-id>|<get-id>(){}[0]
+    final val note // io.github.asadullah012.foliate.model/EpubAnnotation.note|{}note[0]
+        final fun <get-note>(): kotlin/String? // io.github.asadullah012.foliate.model/EpubAnnotation.note.<get-note>|<get-note>(){}[0]
+    final val text // io.github.asadullah012.foliate.model/EpubAnnotation.text|{}text[0]
+        final fun <get-text>(): kotlin/String // io.github.asadullah012.foliate.model/EpubAnnotation.text.<get-text>|<get-text>(){}[0]
+    final val timestamp // io.github.asadullah012.foliate.model/EpubAnnotation.timestamp|{}timestamp[0]
+        final fun <get-timestamp>(): kotlin/Long // io.github.asadullah012.foliate.model/EpubAnnotation.timestamp.<get-timestamp>|<get-timestamp>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.asadullah012.foliate.model/EpubAnnotation.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.asadullah012.foliate.model/EpubAnnotation.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.asadullah012.foliate.model/EpubAnnotation.component3|component3(){}[0]
+    final fun component4(): kotlin/String // io.github.asadullah012.foliate.model/EpubAnnotation.component4|component4(){}[0]
+    final fun component5(): kotlin/String? // io.github.asadullah012.foliate.model/EpubAnnotation.component5|component5(){}[0]
+    final fun component6(): kotlin/Long // io.github.asadullah012.foliate.model/EpubAnnotation.component6|component6(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String? = ..., kotlin/Long = ...): io.github.asadullah012.foliate.model/EpubAnnotation // io.github.asadullah012.foliate.model/EpubAnnotation.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String?;kotlin.Long){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubAnnotation.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubAnnotation.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubAnnotation.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.asadullah012.foliate.model/EpubAnnotation> { // io.github.asadullah012.foliate.model/EpubAnnotation.$serializer|null[0]
+        final val descriptor // io.github.asadullah012.foliate.model/EpubAnnotation.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.asadullah012.foliate.model/EpubAnnotation.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.asadullah012.foliate.model/EpubAnnotation.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.asadullah012.foliate.model/EpubAnnotation // io.github.asadullah012.foliate.model/EpubAnnotation.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.asadullah012.foliate.model/EpubAnnotation) // io.github.asadullah012.foliate.model/EpubAnnotation.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.asadullah012.foliate.model.EpubAnnotation){}[0]
+    }
+
+    final object Companion { // io.github.asadullah012.foliate.model/EpubAnnotation.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.asadullah012.foliate.model/EpubAnnotation> // io.github.asadullah012.foliate.model/EpubAnnotation.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate.model/EpubBookmark { // io.github.asadullah012.foliate.model/EpubBookmark|null[0]
+    constructor <init>(kotlin/String = ..., kotlin/String = ..., kotlin/Long = ..., kotlin/Float = ...) // io.github.asadullah012.foliate.model/EpubBookmark.<init>|<init>(kotlin.String;kotlin.String;kotlin.Long;kotlin.Float){}[0]
+
+    final val cfi // io.github.asadullah012.foliate.model/EpubBookmark.cfi|{}cfi[0]
+        final fun <get-cfi>(): kotlin/String // io.github.asadullah012.foliate.model/EpubBookmark.cfi.<get-cfi>|<get-cfi>(){}[0]
+    final val progressFraction // io.github.asadullah012.foliate.model/EpubBookmark.progressFraction|{}progressFraction[0]
+        final fun <get-progressFraction>(): kotlin/Float // io.github.asadullah012.foliate.model/EpubBookmark.progressFraction.<get-progressFraction>|<get-progressFraction>(){}[0]
+    final val timestamp // io.github.asadullah012.foliate.model/EpubBookmark.timestamp|{}timestamp[0]
+        final fun <get-timestamp>(): kotlin/Long // io.github.asadullah012.foliate.model/EpubBookmark.timestamp.<get-timestamp>|<get-timestamp>(){}[0]
+    final val title // io.github.asadullah012.foliate.model/EpubBookmark.title|{}title[0]
+        final fun <get-title>(): kotlin/String // io.github.asadullah012.foliate.model/EpubBookmark.title.<get-title>|<get-title>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.asadullah012.foliate.model/EpubBookmark.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.asadullah012.foliate.model/EpubBookmark.component2|component2(){}[0]
+    final fun component3(): kotlin/Long // io.github.asadullah012.foliate.model/EpubBookmark.component3|component3(){}[0]
+    final fun component4(): kotlin/Float // io.github.asadullah012.foliate.model/EpubBookmark.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Long = ..., kotlin/Float = ...): io.github.asadullah012.foliate.model/EpubBookmark // io.github.asadullah012.foliate.model/EpubBookmark.copy|copy(kotlin.String;kotlin.String;kotlin.Long;kotlin.Float){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubBookmark.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubBookmark.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubBookmark.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.asadullah012.foliate.model/EpubBookmark> { // io.github.asadullah012.foliate.model/EpubBookmark.$serializer|null[0]
+        final val descriptor // io.github.asadullah012.foliate.model/EpubBookmark.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.asadullah012.foliate.model/EpubBookmark.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.asadullah012.foliate.model/EpubBookmark.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.asadullah012.foliate.model/EpubBookmark // io.github.asadullah012.foliate.model/EpubBookmark.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.asadullah012.foliate.model/EpubBookmark) // io.github.asadullah012.foliate.model/EpubBookmark.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.asadullah012.foliate.model.EpubBookmark){}[0]
+    }
+
+    final object Companion { // io.github.asadullah012.foliate.model/EpubBookmark.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.asadullah012.foliate.model/EpubBookmark> // io.github.asadullah012.foliate.model/EpubBookmark.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate.model/EpubFontOption { // io.github.asadullah012.foliate.model/EpubFontOption|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String) // io.github.asadullah012.foliate.model/EpubFontOption.<init>|<init>(kotlin.String;kotlin.String;kotlin.String){}[0]
+
+    final val displayName // io.github.asadullah012.foliate.model/EpubFontOption.displayName|{}displayName[0]
+        final fun <get-displayName>(): kotlin/String // io.github.asadullah012.foliate.model/EpubFontOption.displayName.<get-displayName>|<get-displayName>(){}[0]
+    final val fontFamilyStack // io.github.asadullah012.foliate.model/EpubFontOption.fontFamilyStack|{}fontFamilyStack[0]
+        final fun <get-fontFamilyStack>(): kotlin/String // io.github.asadullah012.foliate.model/EpubFontOption.fontFamilyStack.<get-fontFamilyStack>|<get-fontFamilyStack>(){}[0]
+    final val id // io.github.asadullah012.foliate.model/EpubFontOption.id|{}id[0]
+        final fun <get-id>(): kotlin/String // io.github.asadullah012.foliate.model/EpubFontOption.id.<get-id>|<get-id>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.asadullah012.foliate.model/EpubFontOption.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.asadullah012.foliate.model/EpubFontOption.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.asadullah012.foliate.model/EpubFontOption.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): io.github.asadullah012.foliate.model/EpubFontOption // io.github.asadullah012.foliate.model/EpubFontOption.copy|copy(kotlin.String;kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubFontOption.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubFontOption.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubFontOption.toString|toString(){}[0]
+
+    final object Companion { // io.github.asadullah012.foliate.model/EpubFontOption.Companion|null[0]
+        final val DEFAULT_FONTS // io.github.asadullah012.foliate.model/EpubFontOption.Companion.DEFAULT_FONTS|{}DEFAULT_FONTS[0]
+            final fun <get-DEFAULT_FONTS>(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubFontOption> // io.github.asadullah012.foliate.model/EpubFontOption.Companion.DEFAULT_FONTS.<get-DEFAULT_FONTS>|<get-DEFAULT_FONTS>(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate.model/EpubFootnote { // io.github.asadullah012.foliate.model/EpubFootnote|null[0]
+    constructor <init>(kotlin/String = ..., kotlin/String = ..., kotlin/String? = ...) // io.github.asadullah012.foliate.model/EpubFootnote.<init>|<init>(kotlin.String;kotlin.String;kotlin.String?){}[0]
+
+    final val href // io.github.asadullah012.foliate.model/EpubFootnote.href|{}href[0]
+        final fun <get-href>(): kotlin/String // io.github.asadullah012.foliate.model/EpubFootnote.href.<get-href>|<get-href>(){}[0]
+    final val text // io.github.asadullah012.foliate.model/EpubFootnote.text|{}text[0]
+        final fun <get-text>(): kotlin/String // io.github.asadullah012.foliate.model/EpubFootnote.text.<get-text>|<get-text>(){}[0]
+    final val title // io.github.asadullah012.foliate.model/EpubFootnote.title|{}title[0]
+        final fun <get-title>(): kotlin/String? // io.github.asadullah012.foliate.model/EpubFootnote.title.<get-title>|<get-title>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.asadullah012.foliate.model/EpubFootnote.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.asadullah012.foliate.model/EpubFootnote.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // io.github.asadullah012.foliate.model/EpubFootnote.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String? = ...): io.github.asadullah012.foliate.model/EpubFootnote // io.github.asadullah012.foliate.model/EpubFootnote.copy|copy(kotlin.String;kotlin.String;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubFootnote.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubFootnote.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubFootnote.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.asadullah012.foliate.model/EpubFootnote> { // io.github.asadullah012.foliate.model/EpubFootnote.$serializer|null[0]
+        final val descriptor // io.github.asadullah012.foliate.model/EpubFootnote.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.asadullah012.foliate.model/EpubFootnote.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.asadullah012.foliate.model/EpubFootnote.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.asadullah012.foliate.model/EpubFootnote // io.github.asadullah012.foliate.model/EpubFootnote.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.asadullah012.foliate.model/EpubFootnote) // io.github.asadullah012.foliate.model/EpubFootnote.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.asadullah012.foliate.model.EpubFootnote){}[0]
+    }
+
+    final object Companion { // io.github.asadullah012.foliate.model/EpubFootnote.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.asadullah012.foliate.model/EpubFootnote> // io.github.asadullah012.foliate.model/EpubFootnote.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate.model/EpubProgress { // io.github.asadullah012.foliate.model/EpubProgress|null[0]
+    constructor <init>(kotlin/Float = ..., kotlin/String? = ...) // io.github.asadullah012.foliate.model/EpubProgress.<init>|<init>(kotlin.Float;kotlin.String?){}[0]
+
+    final val cfi // io.github.asadullah012.foliate.model/EpubProgress.cfi|{}cfi[0]
+        final fun <get-cfi>(): kotlin/String? // io.github.asadullah012.foliate.model/EpubProgress.cfi.<get-cfi>|<get-cfi>(){}[0]
+    final val fraction // io.github.asadullah012.foliate.model/EpubProgress.fraction|{}fraction[0]
+        final fun <get-fraction>(): kotlin/Float // io.github.asadullah012.foliate.model/EpubProgress.fraction.<get-fraction>|<get-fraction>(){}[0]
+
+    final fun component1(): kotlin/Float // io.github.asadullah012.foliate.model/EpubProgress.component1|component1(){}[0]
+    final fun component2(): kotlin/String? // io.github.asadullah012.foliate.model/EpubProgress.component2|component2(){}[0]
+    final fun copy(kotlin/Float = ..., kotlin/String? = ...): io.github.asadullah012.foliate.model/EpubProgress // io.github.asadullah012.foliate.model/EpubProgress.copy|copy(kotlin.Float;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubProgress.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubProgress.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubProgress.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.asadullah012.foliate.model/EpubProgress> { // io.github.asadullah012.foliate.model/EpubProgress.$serializer|null[0]
+        final val descriptor // io.github.asadullah012.foliate.model/EpubProgress.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.asadullah012.foliate.model/EpubProgress.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.asadullah012.foliate.model/EpubProgress.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.asadullah012.foliate.model/EpubProgress // io.github.asadullah012.foliate.model/EpubProgress.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.asadullah012.foliate.model/EpubProgress) // io.github.asadullah012.foliate.model/EpubProgress.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.asadullah012.foliate.model.EpubProgress){}[0]
+    }
+
+    final object Companion { // io.github.asadullah012.foliate.model/EpubProgress.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.asadullah012.foliate.model/EpubProgress> // io.github.asadullah012.foliate.model/EpubProgress.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate.model/EpubReaderConfig { // io.github.asadullah012.foliate.model/EpubReaderConfig|null[0]
+    constructor <init>(kotlin/Int = ..., io.github.asadullah012.foliate.model/EpubReaderTheme = ..., io.github.asadullah012.foliate.model/EpubReaderFlow = ..., kotlin/String = ..., kotlin/Float = ..., kotlin/Int = ..., kotlin/String = ...) // io.github.asadullah012.foliate.model/EpubReaderConfig.<init>|<init>(kotlin.Int;io.github.asadullah012.foliate.model.EpubReaderTheme;io.github.asadullah012.foliate.model.EpubReaderFlow;kotlin.String;kotlin.Float;kotlin.Int;kotlin.String){}[0]
+
+    final val flow // io.github.asadullah012.foliate.model/EpubReaderConfig.flow|{}flow[0]
+        final fun <get-flow>(): io.github.asadullah012.foliate.model/EpubReaderFlow // io.github.asadullah012.foliate.model/EpubReaderConfig.flow.<get-flow>|<get-flow>(){}[0]
+    final val fontFamily // io.github.asadullah012.foliate.model/EpubReaderConfig.fontFamily|{}fontFamily[0]
+        final fun <get-fontFamily>(): kotlin/String // io.github.asadullah012.foliate.model/EpubReaderConfig.fontFamily.<get-fontFamily>|<get-fontFamily>(){}[0]
+    final val fontSize // io.github.asadullah012.foliate.model/EpubReaderConfig.fontSize|{}fontSize[0]
+        final fun <get-fontSize>(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderConfig.fontSize.<get-fontSize>|<get-fontSize>(){}[0]
+    final val lineHeight // io.github.asadullah012.foliate.model/EpubReaderConfig.lineHeight|{}lineHeight[0]
+        final fun <get-lineHeight>(): kotlin/Float // io.github.asadullah012.foliate.model/EpubReaderConfig.lineHeight.<get-lineHeight>|<get-lineHeight>(){}[0]
+    final val margin // io.github.asadullah012.foliate.model/EpubReaderConfig.margin|{}margin[0]
+        final fun <get-margin>(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderConfig.margin.<get-margin>|<get-margin>(){}[0]
+    final val textAlign // io.github.asadullah012.foliate.model/EpubReaderConfig.textAlign|{}textAlign[0]
+        final fun <get-textAlign>(): kotlin/String // io.github.asadullah012.foliate.model/EpubReaderConfig.textAlign.<get-textAlign>|<get-textAlign>(){}[0]
+    final val theme // io.github.asadullah012.foliate.model/EpubReaderConfig.theme|{}theme[0]
+        final fun <get-theme>(): io.github.asadullah012.foliate.model/EpubReaderTheme // io.github.asadullah012.foliate.model/EpubReaderConfig.theme.<get-theme>|<get-theme>(){}[0]
+
+    final fun component1(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderConfig.component1|component1(){}[0]
+    final fun component2(): io.github.asadullah012.foliate.model/EpubReaderTheme // io.github.asadullah012.foliate.model/EpubReaderConfig.component2|component2(){}[0]
+    final fun component3(): io.github.asadullah012.foliate.model/EpubReaderFlow // io.github.asadullah012.foliate.model/EpubReaderConfig.component3|component3(){}[0]
+    final fun component4(): kotlin/String // io.github.asadullah012.foliate.model/EpubReaderConfig.component4|component4(){}[0]
+    final fun component5(): kotlin/Float // io.github.asadullah012.foliate.model/EpubReaderConfig.component5|component5(){}[0]
+    final fun component6(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderConfig.component6|component6(){}[0]
+    final fun component7(): kotlin/String // io.github.asadullah012.foliate.model/EpubReaderConfig.component7|component7(){}[0]
+    final fun copy(kotlin/Int = ..., io.github.asadullah012.foliate.model/EpubReaderTheme = ..., io.github.asadullah012.foliate.model/EpubReaderFlow = ..., kotlin/String = ..., kotlin/Float = ..., kotlin/Int = ..., kotlin/String = ...): io.github.asadullah012.foliate.model/EpubReaderConfig // io.github.asadullah012.foliate.model/EpubReaderConfig.copy|copy(kotlin.Int;io.github.asadullah012.foliate.model.EpubReaderTheme;io.github.asadullah012.foliate.model.EpubReaderFlow;kotlin.String;kotlin.Float;kotlin.Int;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubReaderConfig.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderConfig.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubReaderConfig.toString|toString(){}[0]
+}
+
+final class io.github.asadullah012.foliate.model/EpubReaderLocation { // io.github.asadullah012.foliate.model/EpubReaderLocation|null[0]
+    constructor <init>(kotlin/String? = ..., kotlin/Float = ..., kotlin/String? = ..., kotlin/Int = ..., kotlin/Int = ...) // io.github.asadullah012.foliate.model/EpubReaderLocation.<init>|<init>(kotlin.String?;kotlin.Float;kotlin.String?;kotlin.Int;kotlin.Int){}[0]
+
+    final val cfi // io.github.asadullah012.foliate.model/EpubReaderLocation.cfi|{}cfi[0]
+        final fun <get-cfi>(): kotlin/String? // io.github.asadullah012.foliate.model/EpubReaderLocation.cfi.<get-cfi>|<get-cfi>(){}[0]
+    final val chapterTitle // io.github.asadullah012.foliate.model/EpubReaderLocation.chapterTitle|{}chapterTitle[0]
+        final fun <get-chapterTitle>(): kotlin/String? // io.github.asadullah012.foliate.model/EpubReaderLocation.chapterTitle.<get-chapterTitle>|<get-chapterTitle>(){}[0]
+    final val progressFraction // io.github.asadullah012.foliate.model/EpubReaderLocation.progressFraction|{}progressFraction[0]
+        final fun <get-progressFraction>(): kotlin/Float // io.github.asadullah012.foliate.model/EpubReaderLocation.progressFraction.<get-progressFraction>|<get-progressFraction>(){}[0]
+    final val sectionIndex // io.github.asadullah012.foliate.model/EpubReaderLocation.sectionIndex|{}sectionIndex[0]
+        final fun <get-sectionIndex>(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderLocation.sectionIndex.<get-sectionIndex>|<get-sectionIndex>(){}[0]
+    final val totalSections // io.github.asadullah012.foliate.model/EpubReaderLocation.totalSections|{}totalSections[0]
+        final fun <get-totalSections>(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderLocation.totalSections.<get-totalSections>|<get-totalSections>(){}[0]
+
+    final fun component1(): kotlin/String? // io.github.asadullah012.foliate.model/EpubReaderLocation.component1|component1(){}[0]
+    final fun component2(): kotlin/Float // io.github.asadullah012.foliate.model/EpubReaderLocation.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // io.github.asadullah012.foliate.model/EpubReaderLocation.component3|component3(){}[0]
+    final fun component4(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderLocation.component4|component4(){}[0]
+    final fun component5(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderLocation.component5|component5(){}[0]
+    final fun copy(kotlin/String? = ..., kotlin/Float = ..., kotlin/String? = ..., kotlin/Int = ..., kotlin/Int = ...): io.github.asadullah012.foliate.model/EpubReaderLocation // io.github.asadullah012.foliate.model/EpubReaderLocation.copy|copy(kotlin.String?;kotlin.Float;kotlin.String?;kotlin.Int;kotlin.Int){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubReaderLocation.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubReaderLocation.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubReaderLocation.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.asadullah012.foliate.model/EpubReaderLocation> { // io.github.asadullah012.foliate.model/EpubReaderLocation.$serializer|null[0]
+        final val descriptor // io.github.asadullah012.foliate.model/EpubReaderLocation.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.asadullah012.foliate.model/EpubReaderLocation.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.asadullah012.foliate.model/EpubReaderLocation.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.asadullah012.foliate.model/EpubReaderLocation // io.github.asadullah012.foliate.model/EpubReaderLocation.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.asadullah012.foliate.model/EpubReaderLocation) // io.github.asadullah012.foliate.model/EpubReaderLocation.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.asadullah012.foliate.model.EpubReaderLocation){}[0]
+    }
+
+    final object Companion { // io.github.asadullah012.foliate.model/EpubReaderLocation.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.asadullah012.foliate.model/EpubReaderLocation> // io.github.asadullah012.foliate.model/EpubReaderLocation.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate.model/EpubSearchResult { // io.github.asadullah012.foliate.model/EpubSearchResult|null[0]
+    constructor <init>(kotlin/String = ..., kotlin/String? = ..., kotlin/String = ...) // io.github.asadullah012.foliate.model/EpubSearchResult.<init>|<init>(kotlin.String;kotlin.String?;kotlin.String){}[0]
+
+    final val cfi // io.github.asadullah012.foliate.model/EpubSearchResult.cfi|{}cfi[0]
+        final fun <get-cfi>(): kotlin/String // io.github.asadullah012.foliate.model/EpubSearchResult.cfi.<get-cfi>|<get-cfi>(){}[0]
+    final val chapterTitle // io.github.asadullah012.foliate.model/EpubSearchResult.chapterTitle|{}chapterTitle[0]
+        final fun <get-chapterTitle>(): kotlin/String? // io.github.asadullah012.foliate.model/EpubSearchResult.chapterTitle.<get-chapterTitle>|<get-chapterTitle>(){}[0]
+    final val excerpt // io.github.asadullah012.foliate.model/EpubSearchResult.excerpt|{}excerpt[0]
+        final fun <get-excerpt>(): kotlin/String // io.github.asadullah012.foliate.model/EpubSearchResult.excerpt.<get-excerpt>|<get-excerpt>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.asadullah012.foliate.model/EpubSearchResult.component1|component1(){}[0]
+    final fun component2(): kotlin/String? // io.github.asadullah012.foliate.model/EpubSearchResult.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.asadullah012.foliate.model/EpubSearchResult.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String? = ..., kotlin/String = ...): io.github.asadullah012.foliate.model/EpubSearchResult // io.github.asadullah012.foliate.model/EpubSearchResult.copy|copy(kotlin.String;kotlin.String?;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubSearchResult.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubSearchResult.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubSearchResult.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.asadullah012.foliate.model/EpubSearchResult> { // io.github.asadullah012.foliate.model/EpubSearchResult.$serializer|null[0]
+        final val descriptor // io.github.asadullah012.foliate.model/EpubSearchResult.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.asadullah012.foliate.model/EpubSearchResult.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.asadullah012.foliate.model/EpubSearchResult.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.asadullah012.foliate.model/EpubSearchResult // io.github.asadullah012.foliate.model/EpubSearchResult.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.asadullah012.foliate.model/EpubSearchResult) // io.github.asadullah012.foliate.model/EpubSearchResult.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.asadullah012.foliate.model.EpubSearchResult){}[0]
+    }
+
+    final object Companion { // io.github.asadullah012.foliate.model/EpubSearchResult.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.asadullah012.foliate.model/EpubSearchResult> // io.github.asadullah012.foliate.model/EpubSearchResult.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate.model/EpubTextSelection { // io.github.asadullah012.foliate.model/EpubTextSelection|null[0]
+    constructor <init>(kotlin/String = ..., kotlin/String = ..., kotlin/Int = ...) // io.github.asadullah012.foliate.model/EpubTextSelection.<init>|<init>(kotlin.String;kotlin.String;kotlin.Int){}[0]
+
+    final val cfi // io.github.asadullah012.foliate.model/EpubTextSelection.cfi|{}cfi[0]
+        final fun <get-cfi>(): kotlin/String // io.github.asadullah012.foliate.model/EpubTextSelection.cfi.<get-cfi>|<get-cfi>(){}[0]
+    final val sectionIndex // io.github.asadullah012.foliate.model/EpubTextSelection.sectionIndex|{}sectionIndex[0]
+        final fun <get-sectionIndex>(): kotlin/Int // io.github.asadullah012.foliate.model/EpubTextSelection.sectionIndex.<get-sectionIndex>|<get-sectionIndex>(){}[0]
+    final val text // io.github.asadullah012.foliate.model/EpubTextSelection.text|{}text[0]
+        final fun <get-text>(): kotlin/String // io.github.asadullah012.foliate.model/EpubTextSelection.text.<get-text>|<get-text>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.asadullah012.foliate.model/EpubTextSelection.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.asadullah012.foliate.model/EpubTextSelection.component2|component2(){}[0]
+    final fun component3(): kotlin/Int // io.github.asadullah012.foliate.model/EpubTextSelection.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Int = ...): io.github.asadullah012.foliate.model/EpubTextSelection // io.github.asadullah012.foliate.model/EpubTextSelection.copy|copy(kotlin.String;kotlin.String;kotlin.Int){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubTextSelection.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubTextSelection.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubTextSelection.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.asadullah012.foliate.model/EpubTextSelection> { // io.github.asadullah012.foliate.model/EpubTextSelection.$serializer|null[0]
+        final val descriptor // io.github.asadullah012.foliate.model/EpubTextSelection.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.asadullah012.foliate.model/EpubTextSelection.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.asadullah012.foliate.model/EpubTextSelection.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.asadullah012.foliate.model/EpubTextSelection // io.github.asadullah012.foliate.model/EpubTextSelection.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.asadullah012.foliate.model/EpubTextSelection) // io.github.asadullah012.foliate.model/EpubTextSelection.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.asadullah012.foliate.model.EpubTextSelection){}[0]
+    }
+
+    final object Companion { // io.github.asadullah012.foliate.model/EpubTextSelection.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.asadullah012.foliate.model/EpubTextSelection> // io.github.asadullah012.foliate.model/EpubTextSelection.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate.model/EpubTocItem { // io.github.asadullah012.foliate.model/EpubTocItem|null[0]
+    constructor <init>(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> = ...) // io.github.asadullah012.foliate.model/EpubTocItem.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubTocItem>){}[0]
+
+    final val href // io.github.asadullah012.foliate.model/EpubTocItem.href|{}href[0]
+        final fun <get-href>(): kotlin/String // io.github.asadullah012.foliate.model/EpubTocItem.href.<get-href>|<get-href>(){}[0]
+    final val id // io.github.asadullah012.foliate.model/EpubTocItem.id|{}id[0]
+        final fun <get-id>(): kotlin/String // io.github.asadullah012.foliate.model/EpubTocItem.id.<get-id>|<get-id>(){}[0]
+    final val label // io.github.asadullah012.foliate.model/EpubTocItem.label|{}label[0]
+        final fun <get-label>(): kotlin/String // io.github.asadullah012.foliate.model/EpubTocItem.label.<get-label>|<get-label>(){}[0]
+    final val subitems // io.github.asadullah012.foliate.model/EpubTocItem.subitems|{}subitems[0]
+        final fun <get-subitems>(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> // io.github.asadullah012.foliate.model/EpubTocItem.subitems.<get-subitems>|<get-subitems>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.asadullah012.foliate.model/EpubTocItem.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.asadullah012.foliate.model/EpubTocItem.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.asadullah012.foliate.model/EpubTocItem.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> // io.github.asadullah012.foliate.model/EpubTocItem.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem> = ...): io.github.asadullah012.foliate.model/EpubTocItem // io.github.asadullah012.foliate.model/EpubTocItem.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.collections.List<io.github.asadullah012.foliate.model.EpubTocItem>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.asadullah012.foliate.model/EpubTocItem.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.asadullah012.foliate.model/EpubTocItem.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.asadullah012.foliate.model/EpubTocItem.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.asadullah012.foliate.model/EpubTocItem> { // io.github.asadullah012.foliate.model/EpubTocItem.$serializer|null[0]
+        final val descriptor // io.github.asadullah012.foliate.model/EpubTocItem.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.asadullah012.foliate.model/EpubTocItem.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.asadullah012.foliate.model/EpubTocItem.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.asadullah012.foliate.model/EpubTocItem // io.github.asadullah012.foliate.model/EpubTocItem.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.asadullah012.foliate.model/EpubTocItem) // io.github.asadullah012.foliate.model/EpubTocItem.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.asadullah012.foliate.model.EpubTocItem){}[0]
+    }
+
+    final object Companion { // io.github.asadullah012.foliate.model/EpubTocItem.Companion|null[0]
+        final val $childSerializers // io.github.asadullah012.foliate.model/EpubTocItem.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.asadullah012.foliate.model/EpubTocItem> // io.github.asadullah012.foliate.model/EpubTocItem.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.asadullah012.foliate/EpubReaderController { // io.github.asadullah012.foliate/EpubReaderController|null[0]
+    constructor <init>() // io.github.asadullah012.foliate/EpubReaderController.<init>|<init>(){}[0]
+
+    final val annotationClickEvents // io.github.asadullah012.foliate/EpubReaderController.annotationClickEvents|{}annotationClickEvents[0]
+        final fun <get-annotationClickEvents>(): kotlinx.coroutines.flow/SharedFlow<kotlin/String> // io.github.asadullah012.foliate/EpubReaderController.annotationClickEvents.<get-annotationClickEvents>|<get-annotationClickEvents>(){}[0]
+    final val brightnessEvents // io.github.asadullah012.foliate/EpubReaderController.brightnessEvents|{}brightnessEvents[0]
+        final fun <get-brightnessEvents>(): kotlinx.coroutines.flow/SharedFlow<kotlin/Float> // io.github.asadullah012.foliate/EpubReaderController.brightnessEvents.<get-brightnessEvents>|<get-brightnessEvents>(){}[0]
+    final val endBrightnessEvents // io.github.asadullah012.foliate/EpubReaderController.endBrightnessEvents|{}endBrightnessEvents[0]
+        final fun <get-endBrightnessEvents>(): kotlinx.coroutines.flow/SharedFlow<kotlin/Unit> // io.github.asadullah012.foliate/EpubReaderController.endBrightnessEvents.<get-endBrightnessEvents>|<get-endBrightnessEvents>(){}[0]
+    final val errorMessage // io.github.asadullah012.foliate/EpubReaderController.errorMessage|{}errorMessage[0]
+        final fun <get-errorMessage>(): kotlinx.coroutines.flow/StateFlow<kotlin/String?> // io.github.asadullah012.foliate/EpubReaderController.errorMessage.<get-errorMessage>|<get-errorMessage>(){}[0]
+    final val footnoteEvents // io.github.asadullah012.foliate/EpubReaderController.footnoteEvents|{}footnoteEvents[0]
+        final fun <get-footnoteEvents>(): kotlinx.coroutines.flow/SharedFlow<io.github.asadullah012.foliate.model/EpubFootnote> // io.github.asadullah012.foliate/EpubReaderController.footnoteEvents.<get-footnoteEvents>|<get-footnoteEvents>(){}[0]
+    final val isReady // io.github.asadullah012.foliate/EpubReaderController.isReady|{}isReady[0]
+        final fun <get-isReady>(): kotlinx.coroutines.flow/StateFlow<kotlin/Boolean> // io.github.asadullah012.foliate/EpubReaderController.isReady.<get-isReady>|<get-isReady>(){}[0]
+    final val isSearching // io.github.asadullah012.foliate/EpubReaderController.isSearching|{}isSearching[0]
+        final fun <get-isSearching>(): kotlinx.coroutines.flow/StateFlow<kotlin/Boolean> // io.github.asadullah012.foliate/EpubReaderController.isSearching.<get-isSearching>|<get-isSearching>(){}[0]
+    final val location // io.github.asadullah012.foliate/EpubReaderController.location|{}location[0]
+        final fun <get-location>(): kotlinx.coroutines.flow/StateFlow<io.github.asadullah012.foliate.model/EpubReaderLocation> // io.github.asadullah012.foliate/EpubReaderController.location.<get-location>|<get-location>(){}[0]
+    final val searchResults // io.github.asadullah012.foliate/EpubReaderController.searchResults|{}searchResults[0]
+        final fun <get-searchResults>(): kotlinx.coroutines.flow/StateFlow<kotlin.collections/List<io.github.asadullah012.foliate.model/EpubSearchResult>> // io.github.asadullah012.foliate/EpubReaderController.searchResults.<get-searchResults>|<get-searchResults>(){}[0]
+    final val textSelection // io.github.asadullah012.foliate/EpubReaderController.textSelection|{}textSelection[0]
+        final fun <get-textSelection>(): kotlinx.coroutines.flow/StateFlow<io.github.asadullah012.foliate.model/EpubTextSelection?> // io.github.asadullah012.foliate/EpubReaderController.textSelection.<get-textSelection>|<get-textSelection>(){}[0]
+    final val toc // io.github.asadullah012.foliate/EpubReaderController.toc|{}toc[0]
+        final fun <get-toc>(): kotlinx.coroutines.flow/StateFlow<kotlin.collections/List<io.github.asadullah012.foliate.model/EpubTocItem>> // io.github.asadullah012.foliate/EpubReaderController.toc.<get-toc>|<get-toc>(){}[0]
+    final val toggleControlsEvents // io.github.asadullah012.foliate/EpubReaderController.toggleControlsEvents|{}toggleControlsEvents[0]
+        final fun <get-toggleControlsEvents>(): kotlinx.coroutines.flow/SharedFlow<kotlin/Unit> // io.github.asadullah012.foliate/EpubReaderController.toggleControlsEvents.<get-toggleControlsEvents>|<get-toggleControlsEvents>(){}[0]
+
+    final fun addAnnotation(io.github.asadullah012.foliate.model/EpubAnnotation) // io.github.asadullah012.foliate/EpubReaderController.addAnnotation|addAnnotation(io.github.asadullah012.foliate.model.EpubAnnotation){}[0]
+    final fun applyConfig(io.github.asadullah012.foliate.model/EpubReaderConfig) // io.github.asadullah012.foliate/EpubReaderController.applyConfig|applyConfig(io.github.asadullah012.foliate.model.EpubReaderConfig){}[0]
+    final fun clearSearch() // io.github.asadullah012.foliate/EpubReaderController.clearSearch|clearSearch(){}[0]
+    final fun clearSelection() // io.github.asadullah012.foliate/EpubReaderController.clearSelection|clearSelection(){}[0]
+    final fun deleteAnnotation(kotlin/String) // io.github.asadullah012.foliate/EpubReaderController.deleteAnnotation|deleteAnnotation(kotlin.String){}[0]
+    final fun goToCfi(kotlin/String) // io.github.asadullah012.foliate/EpubReaderController.goToCfi|goToCfi(kotlin.String){}[0]
+    final fun goToFraction(kotlin/Float) // io.github.asadullah012.foliate/EpubReaderController.goToFraction|goToFraction(kotlin.Float){}[0]
+    final fun goToHref(kotlin/String) // io.github.asadullah012.foliate/EpubReaderController.goToHref|goToHref(kotlin.String){}[0]
+    final fun nextPage() // io.github.asadullah012.foliate/EpubReaderController.nextPage|nextPage(){}[0]
+    final fun prevPage() // io.github.asadullah012.foliate/EpubReaderController.prevPage|prevPage(){}[0]
+    final fun search(kotlin/String) // io.github.asadullah012.foliate/EpubReaderController.search|search(kotlin.String){}[0]
+    final fun setFontFamily(kotlin/String) // io.github.asadullah012.foliate/EpubReaderController.setFontFamily|setFontFamily(kotlin.String){}[0]
+    final fun setFontSize(kotlin/Int) // io.github.asadullah012.foliate/EpubReaderController.setFontSize|setFontSize(kotlin.Int){}[0]
+    final fun setLayout(io.github.asadullah012.foliate.model/EpubReaderFlow) // io.github.asadullah012.foliate/EpubReaderController.setLayout|setLayout(io.github.asadullah012.foliate.model.EpubReaderFlow){}[0]
+    final fun setLineHeight(kotlin/Float) // io.github.asadullah012.foliate/EpubReaderController.setLineHeight|setLineHeight(kotlin.Float){}[0]
+    final fun setMargin(kotlin/Int) // io.github.asadullah012.foliate/EpubReaderController.setMargin|setMargin(kotlin.Int){}[0]
+    final fun setTextAlign(kotlin/String) // io.github.asadullah012.foliate/EpubReaderController.setTextAlign|setTextAlign(kotlin.String){}[0]
+    final fun setTheme(io.github.asadullah012.foliate.model/EpubReaderTheme) // io.github.asadullah012.foliate/EpubReaderController.setTheme|setTheme(io.github.asadullah012.foliate.model.EpubReaderTheme){}[0]
+}
+
+final val io.github.asadullah012.foliate.domain/io_github_asadullah012_foliate_domain_InMemoryEpubReaderStorage$stableprop // io.github.asadullah012.foliate.domain/io_github_asadullah012_foliate_domain_InMemoryEpubReaderStorage$stableprop|#static{}io_github_asadullah012_foliate_domain_InMemoryEpubReaderStorage$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubAnnotation$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubAnnotation$stableprop|#static{}io_github_asadullah012_foliate_model_EpubAnnotation$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubAnnotation_$serializer$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubAnnotation_$serializer$stableprop|#static{}io_github_asadullah012_foliate_model_EpubAnnotation_$serializer$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubBookmark$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubBookmark$stableprop|#static{}io_github_asadullah012_foliate_model_EpubBookmark$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubBookmark_$serializer$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubBookmark_$serializer$stableprop|#static{}io_github_asadullah012_foliate_model_EpubBookmark_$serializer$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFontOption$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFontOption$stableprop|#static{}io_github_asadullah012_foliate_model_EpubFontOption$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFootnote$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFootnote$stableprop|#static{}io_github_asadullah012_foliate_model_EpubFootnote$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFootnote_$serializer$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFootnote_$serializer$stableprop|#static{}io_github_asadullah012_foliate_model_EpubFootnote_$serializer$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubProgress$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubProgress$stableprop|#static{}io_github_asadullah012_foliate_model_EpubProgress$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubProgress_$serializer$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubProgress_$serializer$stableprop|#static{}io_github_asadullah012_foliate_model_EpubProgress_$serializer$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderConfig$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderConfig$stableprop|#static{}io_github_asadullah012_foliate_model_EpubReaderConfig$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderLocation$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderLocation$stableprop|#static{}io_github_asadullah012_foliate_model_EpubReaderLocation$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderLocation_$serializer$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderLocation_$serializer$stableprop|#static{}io_github_asadullah012_foliate_model_EpubReaderLocation_$serializer$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubSearchResult$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubSearchResult$stableprop|#static{}io_github_asadullah012_foliate_model_EpubSearchResult$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubSearchResult_$serializer$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubSearchResult_$serializer$stableprop|#static{}io_github_asadullah012_foliate_model_EpubSearchResult_$serializer$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTextSelection$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTextSelection$stableprop|#static{}io_github_asadullah012_foliate_model_EpubTextSelection$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTextSelection_$serializer$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTextSelection_$serializer$stableprop|#static{}io_github_asadullah012_foliate_model_EpubTextSelection_$serializer$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTocItem$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTocItem$stableprop|#static{}io_github_asadullah012_foliate_model_EpubTocItem$stableprop[0]
+final val io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTocItem_$serializer$stableprop // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTocItem_$serializer$stableprop|#static{}io_github_asadullah012_foliate_model_EpubTocItem_$serializer$stableprop[0]
+final val io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_array$stableprop // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_array$stableprop|#static{}io_github_asadullah012_foliate_resources_Res_array$stableprop[0]
+final val io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_drawable$stableprop // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_drawable$stableprop|#static{}io_github_asadullah012_foliate_resources_Res_drawable$stableprop[0]
+final val io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_font$stableprop // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_font$stableprop|#static{}io_github_asadullah012_foliate_resources_Res_font$stableprop[0]
+final val io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_plurals$stableprop // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_plurals$stableprop|#static{}io_github_asadullah012_foliate_resources_Res_plurals$stableprop[0]
+final val io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_string$stableprop // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_string$stableprop|#static{}io_github_asadullah012_foliate_resources_Res_string$stableprop[0]
+final val io.github.asadullah012.foliate/io_github_asadullah012_foliate_EpubReaderController$stableprop // io.github.asadullah012.foliate/io_github_asadullah012_foliate_EpubReaderController$stableprop|#static{}io_github_asadullah012_foliate_EpubReaderController$stableprop[0]
+
+final fun io.github.asadullah012.foliate.domain/io_github_asadullah012_foliate_domain_InMemoryEpubReaderStorage$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.domain/io_github_asadullah012_foliate_domain_InMemoryEpubReaderStorage$stableprop_getter|io_github_asadullah012_foliate_domain_InMemoryEpubReaderStorage$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubAnnotation$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubAnnotation$stableprop_getter|io_github_asadullah012_foliate_model_EpubAnnotation$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubAnnotation_$serializer$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubAnnotation_$serializer$stableprop_getter|io_github_asadullah012_foliate_model_EpubAnnotation_$serializer$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubBookmark$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubBookmark$stableprop_getter|io_github_asadullah012_foliate_model_EpubBookmark$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubBookmark_$serializer$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubBookmark_$serializer$stableprop_getter|io_github_asadullah012_foliate_model_EpubBookmark_$serializer$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFontOption$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFontOption$stableprop_getter|io_github_asadullah012_foliate_model_EpubFontOption$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFootnote$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFootnote$stableprop_getter|io_github_asadullah012_foliate_model_EpubFootnote$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFootnote_$serializer$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubFootnote_$serializer$stableprop_getter|io_github_asadullah012_foliate_model_EpubFootnote_$serializer$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubProgress$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubProgress$stableprop_getter|io_github_asadullah012_foliate_model_EpubProgress$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubProgress_$serializer$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubProgress_$serializer$stableprop_getter|io_github_asadullah012_foliate_model_EpubProgress_$serializer$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderConfig$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderConfig$stableprop_getter|io_github_asadullah012_foliate_model_EpubReaderConfig$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderLocation$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderLocation$stableprop_getter|io_github_asadullah012_foliate_model_EpubReaderLocation$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderLocation_$serializer$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubReaderLocation_$serializer$stableprop_getter|io_github_asadullah012_foliate_model_EpubReaderLocation_$serializer$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubSearchResult$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubSearchResult$stableprop_getter|io_github_asadullah012_foliate_model_EpubSearchResult$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubSearchResult_$serializer$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubSearchResult_$serializer$stableprop_getter|io_github_asadullah012_foliate_model_EpubSearchResult_$serializer$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTextSelection$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTextSelection$stableprop_getter|io_github_asadullah012_foliate_model_EpubTextSelection$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTextSelection_$serializer$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTextSelection_$serializer$stableprop_getter|io_github_asadullah012_foliate_model_EpubTextSelection_$serializer$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTocItem$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTocItem$stableprop_getter|io_github_asadullah012_foliate_model_EpubTocItem$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTocItem_$serializer$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.model/io_github_asadullah012_foliate_model_EpubTocItem_$serializer$stableprop_getter|io_github_asadullah012_foliate_model_EpubTocItem_$serializer$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_array$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_array$stableprop_getter|io_github_asadullah012_foliate_resources_Res_array$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_drawable$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_drawable$stableprop_getter|io_github_asadullah012_foliate_resources_Res_drawable$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_font$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_font$stableprop_getter|io_github_asadullah012_foliate_resources_Res_font$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_plurals$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_plurals$stableprop_getter|io_github_asadullah012_foliate_resources_Res_plurals$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_string$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate.resources/io_github_asadullah012_foliate_resources_Res_string$stableprop_getter|io_github_asadullah012_foliate_resources_Res_string$stableprop_getter(){}[0]
+final fun io.github.asadullah012.foliate.ui/EpubReader(kotlin/String, io.github.asadullah012.foliate/EpubReaderController, io.github.asadullah012.foliate.model/EpubReaderConfig?, kotlin/String?, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.ui/EpubReader|EpubReader(kotlin.String;io.github.asadullah012.foliate.EpubReaderController;io.github.asadullah012.foliate.model.EpubReaderConfig?;kotlin.String?;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate.ui/FoliateReaderView(kotlin/String, io.github.asadullah012.foliate/EpubReaderController, io.github.asadullah012.foliate.model/EpubReaderConfig?, kotlin/String?, androidx.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // io.github.asadullah012.foliate.ui/FoliateReaderView|FoliateReaderView(kotlin.String;io.github.asadullah012.foliate.EpubReaderController;io.github.asadullah012.foliate.model.EpubReaderConfig?;kotlin.String?;androidx.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.asadullah012.foliate/io_github_asadullah012_foliate_EpubReaderController$stableprop_getter(): kotlin/Int // io.github.asadullah012.foliate/io_github_asadullah012_foliate_EpubReaderController$stableprop_getter|io_github_asadullah012_foliate_EpubReaderController$stableprop_getter(){}[0]

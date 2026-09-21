@@ -1,0 +1,607 @@
+public abstract interface class io/github/asadullah012/foliate/compose/presentation/ReaderEffect {
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEffect$ApplyWindowBrightness : io/github/asadullah012/foliate/compose/presentation/ReaderEffect {
+	public static final field $stable I
+	public fun <init> (F)V
+	public final fun component1 ()F
+	public final fun copy (F)Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$ApplyWindowBrightness;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$ApplyWindowBrightness;FILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$ApplyWindowBrightness;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBrightness ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEffect$OnNavigateBack : io/github/asadullah012/foliate/compose/presentation/ReaderEffect {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$OnNavigateBack;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEffect$OpenExternalReader : io/github/asadullah012/foliate/compose/presentation/ReaderEffect {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$OpenExternalReader;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$OpenExternalReader;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$OpenExternalReader;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFilePath ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEffect$ShowMessage : io/github/asadullah012/foliate/compose/presentation/ReaderEffect {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$ShowMessage;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$ShowMessage;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEffect$ShowMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$AddHighlight : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$AddHighlight;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$AddHighlight;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$AddHighlight;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getNote ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$AdjustBrightness : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (F)V
+	public final fun component1 ()F
+	public final fun copy (F)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$AdjustBrightness;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$AdjustBrightness;FILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$AdjustBrightness;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDelta ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFlow : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Lio/github/asadullah012/foliate/model/EpubReaderFlow;)V
+	public final fun component1 ()Lio/github/asadullah012/foliate/model/EpubReaderFlow;
+	public final fun copy (Lio/github/asadullah012/foliate/model/EpubReaderFlow;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFlow;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFlow;Lio/github/asadullah012/foliate/model/EpubReaderFlow;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFlow;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFlow ()Lio/github/asadullah012/foliate/model/EpubReaderFlow;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFontFamily : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFontFamily;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFontFamily;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFontFamily;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFamily ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFontSize : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (I)V
+	public final fun component1 ()I
+	public final fun copy (I)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFontSize;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFontSize;IILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeFontSize;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDelta ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeLineHeight : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (F)V
+	public final fun component1 ()F
+	public final fun copy (F)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeLineHeight;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeLineHeight;FILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeLineHeight;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLineHeight ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeMargin : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (I)V
+	public final fun component1 ()I
+	public final fun copy (I)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeMargin;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeMargin;IILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeMargin;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMargin ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeTextAlign : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeTextAlign;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeTextAlign;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeTextAlign;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlign ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeTheme : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Lio/github/asadullah012/foliate/model/EpubReaderTheme;)V
+	public final fun component1 ()Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public final fun copy (Lio/github/asadullah012/foliate/model/EpubReaderTheme;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeTheme;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeTheme;Lio/github/asadullah012/foliate/model/EpubReaderTheme;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ChangeTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTheme ()Lio/github/asadullah012/foliate/model/EpubReaderTheme;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ClearSelection : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ClearSelection;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$CloseSheet : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$CloseSheet;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$DeleteBookmark : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$DeleteBookmark;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$DeleteBookmark;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$DeleteBookmark;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$DeleteHighlight : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$DeleteHighlight;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$DeleteHighlight;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$DeleteHighlight;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$DismissAnnotationDetail : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$DismissAnnotationDetail;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$DismissFootnote : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$DismissFootnote;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$EndBrightness : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$EndBrightness;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$Init : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;F)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;FILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()F
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;F)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$Init;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$Init;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;FILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$Init;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBookId ()Ljava/lang/String;
+	public final fun getBookTitle ()Ljava/lang/String;
+	public final fun getFilePath ()Ljava/lang/String;
+	public final fun getInitialCfi ()Ljava/lang/String;
+	public final fun getInitialProgress ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$LocationUpdated : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;FLjava/lang/String;II)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()F
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun copy (Ljava/lang/String;FLjava/lang/String;II)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$LocationUpdated;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$LocationUpdated;Ljava/lang/String;FLjava/lang/String;IIILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$LocationUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public final fun getChapterTitle ()Ljava/lang/String;
+	public final fun getFraction ()F
+	public final fun getSectionIndex ()I
+	public final fun getTotalSections ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnAnnotationClicked : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnAnnotationClicked;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnAnnotationClicked;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnAnnotationClicked;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCfi ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnError : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnError;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnError;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnNavigateBack : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OnNavigateBack;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$OpenSheet : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Lio/github/asadullah012/foliate/model/EpubReaderSheet;)V
+	public final fun component1 ()Lio/github/asadullah012/foliate/model/EpubReaderSheet;
+	public final fun copy (Lio/github/asadullah012/foliate/model/EpubReaderSheet;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OpenSheet;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OpenSheet;Lio/github/asadullah012/foliate/model/EpubReaderSheet;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$OpenSheet;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSheet ()Lio/github/asadullah012/foliate/model/EpubReaderSheet;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ResetAppearance : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ResetAppearance;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$SearchQueryChanged : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$SearchQueryChanged;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$SearchQueryChanged;Ljava/lang/String;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$SearchQueryChanged;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getQuery ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$SearchResultsLoaded : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$SearchResultsLoaded;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$SearchResultsLoaded;Ljava/util/List;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$SearchResultsLoaded;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getResults ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$SetFontSize : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (I)V
+	public final fun component1 ()I
+	public final fun copy (I)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$SetFontSize;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$SetFontSize;IILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$SetFontSize;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSizePx ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ShowFootnote : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Lio/github/asadullah012/foliate/model/EpubFootnote;)V
+	public final fun component1 ()Lio/github/asadullah012/foliate/model/EpubFootnote;
+	public final fun copy (Lio/github/asadullah012/foliate/model/EpubFootnote;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ShowFootnote;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ShowFootnote;Lio/github/asadullah012/foliate/model/EpubFootnote;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ShowFootnote;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFootnote ()Lio/github/asadullah012/foliate/model/EpubFootnote;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$TextSelectionChanged : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Lio/github/asadullah012/foliate/model/EpubTextSelection;)V
+	public final fun component1 ()Lio/github/asadullah012/foliate/model/EpubTextSelection;
+	public final fun copy (Lio/github/asadullah012/foliate/model/EpubTextSelection;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$TextSelectionChanged;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$TextSelectionChanged;Lio/github/asadullah012/foliate/model/EpubTextSelection;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$TextSelectionChanged;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSelection ()Lio/github/asadullah012/foliate/model/EpubTextSelection;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$TocLoaded : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$TocLoaded;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$TocLoaded;Ljava/util/List;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$TocLoaded;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ToggleBookmark : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ToggleBookmark;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$ToggleControls : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$ToggleControls;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderEvent$UpdateProgress : io/github/asadullah012/foliate/compose/presentation/ReaderEvent {
+	public static final field $stable I
+	public fun <init> (F)V
+	public final fun component1 ()F
+	public final fun copy (F)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$UpdateProgress;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$UpdateProgress;FILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent$UpdateProgress;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getProgress ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public class io/github/asadullah012/foliate/compose/presentation/ReaderModel : androidx/lifecycle/ViewModel {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lio/github/asadullah012/foliate/domain/EpubReaderStorage;Lkotlin/time/Clock;)V
+	public synthetic fun <init> (Lio/github/asadullah012/foliate/domain/EpubReaderStorage;Lkotlin/time/Clock;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getEffects ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun onEvent (Lio/github/asadullah012/foliate/compose/presentation/ReaderEvent;)V
+}
+
+public final class io/github/asadullah012/foliate/compose/presentation/ReaderState {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ZLio/github/asadullah012/foliate/model/EpubReaderConfig;Lio/github/asadullah012/foliate/model/EpubReaderSheet;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;ZLjava/lang/String;Ljava/lang/String;IIFLjava/util/List;FZLio/github/asadullah012/foliate/model/EpubTextSelection;Ljava/util/List;Lio/github/asadullah012/foliate/model/EpubFootnote;Lio/github/asadullah012/foliate/model/EpubAnnotation;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ZLio/github/asadullah012/foliate/model/EpubReaderConfig;Lio/github/asadullah012/foliate/model/EpubReaderSheet;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;ZLjava/lang/String;Ljava/lang/String;IIFLjava/util/List;FZLio/github/asadullah012/foliate/model/EpubTextSelection;Ljava/util/List;Lio/github/asadullah012/foliate/model/EpubFootnote;Lio/github/asadullah012/foliate/model/EpubAnnotation;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Z
+	public final fun component11 ()Ljava/util/List;
+	public final fun component12 ()Ljava/util/List;
+	public final fun component13 ()Z
+	public final fun component14 ()Ljava/lang/String;
+	public final fun component15 ()Ljava/lang/String;
+	public final fun component16 ()I
+	public final fun component17 ()I
+	public final fun component18 ()F
+	public final fun component19 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component20 ()F
+	public final fun component21 ()Z
+	public final fun component22 ()Lio/github/asadullah012/foliate/model/EpubTextSelection;
+	public final fun component23 ()Ljava/util/List;
+	public final fun component24 ()Lio/github/asadullah012/foliate/model/EpubFootnote;
+	public final fun component25 ()Lio/github/asadullah012/foliate/model/EpubAnnotation;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Z
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Z
+	public final fun component7 ()Lio/github/asadullah012/foliate/model/EpubReaderConfig;
+	public final fun component8 ()Lio/github/asadullah012/foliate/model/EpubReaderSheet;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ZLio/github/asadullah012/foliate/model/EpubReaderConfig;Lio/github/asadullah012/foliate/model/EpubReaderSheet;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;ZLjava/lang/String;Ljava/lang/String;IIFLjava/util/List;FZLio/github/asadullah012/foliate/model/EpubTextSelection;Ljava/util/List;Lio/github/asadullah012/foliate/model/EpubFootnote;Lio/github/asadullah012/foliate/model/EpubAnnotation;)Lio/github/asadullah012/foliate/compose/presentation/ReaderState;
+	public static synthetic fun copy$default (Lio/github/asadullah012/foliate/compose/presentation/ReaderState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ZLio/github/asadullah012/foliate/model/EpubReaderConfig;Lio/github/asadullah012/foliate/model/EpubReaderSheet;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;ZLjava/lang/String;Ljava/lang/String;IIFLjava/util/List;FZLio/github/asadullah012/foliate/model/EpubTextSelection;Ljava/util/List;Lio/github/asadullah012/foliate/model/EpubFootnote;Lio/github/asadullah012/foliate/model/EpubAnnotation;ILjava/lang/Object;)Lio/github/asadullah012/foliate/compose/presentation/ReaderState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActiveFootnote ()Lio/github/asadullah012/foliate/model/EpubFootnote;
+	public final fun getActiveSheet ()Lio/github/asadullah012/foliate/model/EpubReaderSheet;
+	public final fun getAnnotations ()Ljava/util/List;
+	public final fun getBookId ()Ljava/lang/String;
+	public final fun getBookTitle ()Ljava/lang/String;
+	public final fun getBookmarks ()Ljava/util/List;
+	public final fun getBrightness ()F
+	public final fun getCurrentCfi ()Ljava/lang/String;
+	public final fun getCurrentChapterTitle ()Ljava/lang/String;
+	public final fun getCurrentSectionIndex ()I
+	public final fun getErrorMessage ()Ljava/lang/String;
+	public final fun getFilePath ()Ljava/lang/String;
+	public final fun getProgressFraction ()F
+	public final fun getReaderConfig ()Lio/github/asadullah012/foliate/model/EpubReaderConfig;
+	public final fun getSearchQuery ()Ljava/lang/String;
+	public final fun getSearchResults ()Ljava/util/List;
+	public final fun getSelectedAnnotation ()Lio/github/asadullah012/foliate/model/EpubAnnotation;
+	public final fun getTextSelection ()Lio/github/asadullah012/foliate/model/EpubTextSelection;
+	public final fun getTocItems ()Ljava/util/List;
+	public final fun getTotalSections ()I
+	public fun hashCode ()I
+	public final fun isBookmarked ()Z
+	public final fun isBrightnessOverlayVisible ()Z
+	public final fun isControlsVisible ()Z
+	public final fun isLoading ()Z
+	public final fun isSearching ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/ComposableSingletons$ReaderScreenKt {
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/ui/ComposableSingletons$ReaderScreenKt;
+	public fun <init> ()V
+	public final fun getLambda$-590212664$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$1659737455$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/ReaderScreenKt {
+	public static final fun ReaderScreen (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;FLio/github/asadullah012/foliate/compose/presentation/ReaderModel;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Ljava/util/List;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderAnnotationDialogKt {
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderAnnotationDialogKt;
+	public fun <init> ()V
+	public final fun getLambda$412664596$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$663881770$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderAppearanceSheetKt {
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderAppearanceSheetKt;
+	public fun <init> ()V
+	public final fun getLambda$-1109512164$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-486775638$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-925725746$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1137760099$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1251318306$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1549863308$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1605443991$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1635385505$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$186038163$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$2135665690$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$757262677$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderBottomBarKt {
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderBottomBarKt;
+	public fun <init> ()V
+	public final fun getLambda$-1006674203$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$948977102$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderFootnoteSheetKt {
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderFootnoteSheetKt;
+	public fun <init> ()V
+	public final fun getLambda$-322213252$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderSearchDialogKt {
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderSearchDialogKt;
+	public fun <init> ()V
+	public final fun getLambda$-1746187735$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-609733902$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1215980360$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1627610446$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderSelectionToolbarKt {
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderSelectionToolbarKt;
+	public fun <init> ()V
+	public final fun getLambda$-1052246432$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$420179351$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderTocDrawerKt {
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderTocDrawerKt;
+	public fun <init> ()V
+	public final fun getLambda$-1043060050$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-572183620$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1150078701$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$655732009$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderTopBarKt {
+	public static final field INSTANCE Lio/github/asadullah012/foliate/compose/ui/components/ComposableSingletons$ReaderTopBarKt;
+	public fun <init> ()V
+	public final fun getLambda$-1691110392$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-2147077745$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1147443849$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1221715718$io_github_asadullah012_foliate_kmp_compose ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ReaderAnnotationDialogKt {
+	public static final fun ReaderAnnotationDialog (Lio/github/asadullah012/foliate/model/EpubAnnotation;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ReaderAppearanceSheetKt {
+	public static final fun ReaderAppearanceSheet (Lio/github/asadullah012/foliate/model/EpubReaderConfig;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Ljava/util/List;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ReaderBottomBarKt {
+	public static final fun ReaderBottomBar (FIILjava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ReaderBrightnessHudKt {
+	public static final fun ReaderBrightnessHud (ZFLandroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ReaderFootnoteSheetKt {
+	public static final fun ReaderFootnoteSheet (Lio/github/asadullah012/foliate/model/EpubFootnote;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ReaderSearchDialogKt {
+	public static final fun ReaderSearchDialog (Ljava/lang/String;Ljava/util/List;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ReaderSelectionToolbarKt {
+	public static final fun ReaderSelectionToolbar (ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ReaderTocDrawerKt {
+	public static final fun ReaderTocDrawer (Ljava/util/List;Ljava/util/List;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/github/asadullah012/foliate/compose/ui/components/ReaderTopBarKt {
+	public static final fun ReaderTopBar (Ljava/lang/String;Ljava/lang/String;ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+

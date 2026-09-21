@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: macos-14
@@ -19,10 +22,53 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
 
-      - name: Assemble All Targets
+      - name: Assemble all targets
         run: ./gradlew assemble
 
-      - name: Run Tests
+      - name: Run tests and the ABI check
         run: ./gradlew check
+
+      # A packaging defect never appears in a source build. Build the real
+      # artifacts and look inside them.
+      - name: Publish to the local Maven repository
+        run: ./gradlew publishToMavenLocal
+
+      - name: Verify that the AAR carries the foliate-js engine
+        run: |
+          set -euo pipefail
+          AAR=~/.m2/repository/io/github/asadullah012/foliate-kmp-core-android/*/foliate-kmp-core-android-*.aar
+          # The shell expands the wildcards, so take the first match.
+          AAR=$(ls $AAR | head -1)
+          echo "Inspecting $AAR"
+          ENTRIES=$(unzip -Z1 "$AAR")
+
+          for f in index.html view.js epub.js paginator.js vendor/zip.js vendor/fflate.js; do
+            if ! echo "$ENTRIES" | grep -q "assets/composeResources/.*/files/foliate/$f$"; then
+              echo "::error::The AAR does not contain assets/.../files/foliate/$f"
+              echo "$ENTRIES"
+              exit 1
+            fi
+          done
+
+          if ! echo "$ENTRIES" | grep -q "^proguard.txt$"; then
+            echo "::error::The AAR carries no consumer R8 rules"
+            exit 1
+          fi
+          echo "The AAR contains the engine files and the consumer R8 rules."
+
+      - name: Verify that the POM has one license and one developer
+        run: |
+          set -euo pipefail
+          for module in foliate-kmp-core foliate-kmp-compose; do
+            POM=$(ls ~/.m2/repository/io/github/asadullah012/$module/*/$module-*.pom | head -1)
+            LICENSES=$(grep -c "<license>" "$POM" || true)
+            DEVELOPERS=$(grep -c "<developer>" "$POM" || true)
+            if [ "$LICENSES" -ne 1 ] || [ "$DEVELOPERS" -ne 1 ]; then
+              echo "::error::$module POM has $LICENSES licenses and $DEVELOPERS developers; each must be 1"
+              cat "$POM"
+              exit 1
+            fi
+          done
+          echo "Both POMs are correct."
