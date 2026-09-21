@@ -59,8 +59,6 @@ import kotlin.coroutines.cancellation.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
-import okio.FileSystem
-import okio.Path.Companion.toPath
 
 private enum class Screen {
     Home,
@@ -78,16 +76,8 @@ public fun SampleApp() {
         LaunchedEffect(Unit) {
             withContext(Dispatchers.IO) {
                 try {
-                    val tempDir = FileSystem.SYSTEM_TEMPORARY_DIRECTORY
-                    val targetPath = tempDir / "alice_in_wonderland.epub"
-
-                    if (!FileSystem.SYSTEM.exists(targetPath)) {
-                        val bytes = Res.readBytes("files/alice.epub")
-                        FileSystem.SYSTEM.write(targetPath) {
-                            write(bytes)
-                        }
-                    }
-                    bookFilePath = targetPath.toString()
+                    val bytes = Res.readBytes("files/alice.epub")
+                    bookFilePath = saveSampleEpub(bytes, "alice_in_wonderland.epub")
                 } catch (e: CancellationException) {
                     throw e
                 } catch (e: Exception) {
