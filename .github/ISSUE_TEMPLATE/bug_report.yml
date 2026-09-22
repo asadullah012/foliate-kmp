@@ -1,0 +1,83 @@
+name: Bug Report
+description: Create a report to help us reproduce and fix a bug in foliate-kmp
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue! Please provide as much detail as possible to help us reproduce and resolve it.
+
+  - type: textarea
+    id: problem-summary
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Swiping vertically in scrolled mode stops scrolling and modifies brightness...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce the issue.
+      placeholder: |
+        1. Open any EPUB using `ReaderScreen` with flow set to `SCROLLED`.
+        2. Swipe vertically on the left side of the screen.
+        3. See that page scrolling freezes and the brightness HUD appears.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: A clear description of what you expected to happen.
+      placeholder: Content should scroll smoothly without triggering the brightness HUD.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened instead.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: Which platform(s) did you observe this bug on?
+      multiple: true
+      options:
+        - Android (Real Device)
+        - Android (Emulator)
+        - iOS (Real Device)
+        - iOS (Simulator)
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment & Versions
+      description: OS version, device model, and library version.
+      placeholder: "foliate-kmp: 0.1.0-beta01, Android 14 / Pixel 7, iOS 18 / iPhone 16"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs or Stacktrace
+      description: Please copy and paste any relevant logcat, Xcode console logs, or crash traces.
+      render: shell
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or sample EPUB files about the problem here.

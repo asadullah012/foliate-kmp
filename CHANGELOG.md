@@ -1,8 +1,22 @@
 # Changelog
 
-This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+### Added
+- GitHub YAML issue forms (`bug_report.yml`, `feature_request.yml`) and pull request template.
+- `CODE_OF_CONDUCT.md` adhering to Contributor Covenant v2.1.
+- Status badges in `README.md` for Maven Central, CI build status, License, Kotlin, and Compose Multiplatform.
+
+### Fixed
+
+### Changed
+
+## [0.1.0-beta01] - 2026-09-21
 
 ### Fixed
 
@@ -92,6 +106,3 @@ This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Tests for the bound of the command queue, the MIME type table, the debounce of the
   progress write, and the uniqueness of an annotation id.
 
-## [0.1.0-beta01]
-
-- First release. Not published to Maven Central.
