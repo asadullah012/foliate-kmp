@@ -16,14 +16,27 @@ Thank you for your interest in foliate-kmp.
 ./gradlew check          # Run the tests and the ABI check
 ```
 
+## Branching Policy & Workflow
+
+1. **`main` is protected**: Never push directly to `main`. All changes must arrive through a Pull Request.
+2. **Branch naming**:
+   - Bug fixes: `fix/<issue-number>-<short-description>` (e.g., `fix/12-brightness-scroll`)
+   - Features: `feat/<issue-number>-<short-description>` (e.g., `feat/15-custom-themes`)
+   - Documentation & Tooling: `docs/<short-description>` or `ci/<short-description>`
+3. **Always branch off the latest `main`**:
+   ```bash
+   git checkout main
+   git pull origin main
+   git checkout -b fix/12-brightness-scroll
+   ```
+
 ## Before you open a pull request
 
-1. Run `./gradlew check`. It must pass.
-2. If you changed the public API, run `./gradlew updateKotlinAbi` and commit the new
-   `api/*.api` and `api/*.klib.api` files. `check` fails without this step.
-3. Write KDoc on every new public declaration. Both modules use `explicitApi()`, so
-   the compiler asks for an explicit visibility modifier on each one.
-4. Add a line to the `Unreleased` section of `CHANGELOG.md`.
+1. Run `./gradlew check`. All tests and ABI validation checks must pass.
+2. If you modified public declarations, run `./gradlew updateKotlinAbi` (or `./gradlew apiDump`) and commit the updated `api/*.api` and `api/*.klib.api` files.
+3. Write KDoc on every new public declaration. Both modules enforce `explicitApi()`.
+4. Add an entry to the `[Unreleased]` section of `CHANGELOG.md` following [Keep a Changelog](https://keepachangelog.com/).
+5. Fill out the Pull Request template and link the relevant issue (`Fixes #12`).
 
 ## Test the published artifacts
 
@@ -58,6 +71,11 @@ second directory. One copy reaches both platforms.
 The project follows the standard Kotlin coding conventions. Write comments and
 documents in simple, direct English.
 
+## Code of Conduct
+
+Please review and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) in all project interactions.
+
 ## License
 
 Your contribution goes out under the MIT license. See [LICENSE](LICENSE).
+

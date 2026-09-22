@@ -1,0 +1,56 @@
+name: Feature Request
+description: Suggest an idea, enhancement, or new API for foliate-kmp
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature or enhancement for foliate-kmp!
+
+  - type: textarea
+    id: feature-summary
+    attributes:
+      label: Feature Summary
+      description: A clear and concise summary of the proposed feature.
+      placeholder: Add ability to configure or disable edge-swipe brightness gestures...
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation & Problem Statement
+      description: Is your feature request related to a specific problem or use case? Please explain.
+      placeholder: In our app, vertical gestures conflict with continuous reading or custom gestures...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution / API Design
+      description: Describe your proposed solution or API change.
+      placeholder: Add `enableBrightnessGesture: Boolean` to `EpubReaderConfig`...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or features you've considered.
+
+  - type: dropdown
+    id: target-module
+    attributes:
+      label: Affected Component / Module
+      description: Which part of foliate-kmp does this impact?
+      multiple: true
+      options:
+        - "foliate-kmp-core (Headless engine, controller, models)"
+        - "foliate-kmp-compose (Material 3 UI, ReaderScreen)"
+        - "sample (Sample app)"
+        - "documentation / build tooling"
+    validations:
+      required: true

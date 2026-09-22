@@ -1,5 +1,11 @@
 # foliate-kmp
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.asadullah012/foliate-kmp-core?color=blue&label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.asadullah012/foliate-kmp-core)
+[![Build & Test](https://github.com/asadullah012/foliate-kmp/actions/workflows/build.yml/badge.svg)](https://github.com/asadullah012/foliate-kmp/actions/workflows/build.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.4.20-purple.svg)](https://kotlinlang.org)
+[![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-1.12.0-blue.svg)](https://www.jetbrains.com/lp/compose-multiplatform/)
+
 **foliate-kmp** is a Kotlin Multiplatform (Compose Multiplatform) EPUB reader library.
 It uses [foliate-js](https://github.com/johnfactotum/foliate-js) as its engine. It
 gives you standards-compliant EPUB rendering with discrete pagination, CFI navigation,
@@ -7,6 +13,14 @@ annotations, search and themes on **Android** and **iOS**.
 
 > **Stability: beta.** The public API can change in a minor release until version 1.0.
 > Each change appears in [CHANGELOG.md](CHANGELOG.md).
+
+---
+
+## Preview
+
+| Sample Library | Reading Experience | Typography & Themes | Table of Contents |
+| :---: | :---: | :---: | :---: |
+| <img src="docs/images/home_screen.png" width="200" alt="Sample Library" /> | <img src="docs/images/reading_view.png" width="200" alt="Reading Experience" /> | <img src="docs/images/appearance_sheet.png" width="200" alt="Appearance Controls" /> | <img src="docs/images/navigation_toc.png" width="200" alt="TOC Navigation" /> |
 
 ---
 
@@ -108,7 +122,12 @@ The repository includes a runnable Compose Multiplatform sample app in the `:sam
 ./gradlew :sample:installDebug
 ```
 
-### Build for iOS Simulator
+### Run on iOS
+Open the Xcode project in Xcode and click **Run**:
+```bash
+open sample/iosApp/iosApp.xcodeproj
+```
+Or build the framework for the Apple Silicon simulator:
 ```bash
 ./gradlew :sample:compileKotlinIosSimulatorArm64
 ```
@@ -161,6 +180,11 @@ MIT License. See [LICENSE](LICENSE).
 The artifacts contain a copy of foliate-js, zip.js and fflate. See
 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) for the full license text of each one.
 
+## Security
+
+To report a vulnerability privately, see [SECURITY.md](SECURITY.md).
+
 ## How to contribute
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
+
